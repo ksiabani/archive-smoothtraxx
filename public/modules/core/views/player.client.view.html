@@ -1,0 +1,81 @@
+<!--<div class="row header" data-ng-controller="PlayerController" class="videogular-container">-->
+<div data-ng-controller="PlayerController" class="videogular-container">
+    <!--<div class="row header">-->
+
+        <!--<div class="col-xs-12">-->
+            <!--<div class="user pull-right">-->
+                <!--<div class="item dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<img src="modules/core/img/avatar.jpg">-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu dropdown-menu-right">-->
+                        <!--<li class="dropdown-header">-->
+                            <!--Joe Bloggs-->
+                        <!--</li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="link">-->
+                            <!--<a href="#">-->
+                                <!--Profile-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="link">-->
+                            <!--<a href="#">-->
+                                <!--Menu Item-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="link">-->
+                            <!--<a href="#">-->
+                                <!--Menu Item-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="link">-->
+                            <!--<a href="#">-->
+                                <!--Logout-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="item dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="fa fa-bell-o"></i>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu dropdown-menu-right">-->
+                        <!--<li class="dropdown-header">-->
+                            <!--Notifications-->
+                        <!--</li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li>-->
+                            <!--<a href="#">Server Down!</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="meta">-->
+                <!--<div class="page">-->
+                    <!--Dashboard-->
+                <!--</div>-->
+                <!--<div class="breadcrumb-links">-->
+                    <!--Home / Dashboard-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <videogular vg-theme="PlayerController.config.theme" class="videogular-container audio">
+        <vg-media vg-src="PlayerController.config.sources" vg-type="audio"></vg-media>
+
+
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                    </vg-volume>
+                </vg-controls>
+            </videogular>
+
+    </div>
