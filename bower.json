@@ -14,6 +14,8 @@
     "angular-bootstrap": "~0.11.2",
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.11",
-    "videogular": "~1.1.1"
+    "videogular": "~1.1.1",
+    "rdash-ui": "~1.0.1",
+    "font-awesome": "~4.3.0"
   }
 }
