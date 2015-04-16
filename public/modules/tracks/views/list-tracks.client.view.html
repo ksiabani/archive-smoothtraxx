@@ -1,19 +1,20 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>Tracks</h1>
-    </div>
-    <div class="list-group">
-        <a data-ng-repeat="track in tracks" data-ng-href="#!/tracks/{{track._id}}" class="list-group-item">
+	<div class="page-header">
+		<h1>Tracks</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="track in tracks" data-ng-href="#!/tracks/{{track._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
-				<span data-ng-bind="track.created | date:'medium'"></span>
+				<span data-ng-bind="track.created | date:'mediumDate'"></span>
 				by
 				<span data-ng-bind="track.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="track.name"></h4>
-        </a>
-    </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!tracks.$resolved || tracks.length">
-    	No Tracks yet, why don't you <a href="/#!/tracks/create">create one</a>?
-    </div>
+			<h4 class="list-group-item-heading" data-ng-bind="track.title"></h4>
+			<p class="list-group-item-text" data-ng-bind="track.content"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="tracks.$resolved && !tracks.length">
+		No tracks yet, why don't you <a href="/#!/tracks/create">create one</a>?
+	</div>
 </section>

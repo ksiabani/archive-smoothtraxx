@@ -13,9 +13,7 @@ angular.module('core').controller('PlayerController',
 
         controller.onCompleteVideo = function() {
             controller.isCompleted = true;
-
             controller.currentVideo++;
-
             if (controller.currentVideo >= controller.videos.length) controller.currentVideo = 0;
 
             controller.setVideo(controller.currentVideo);
@@ -37,16 +35,8 @@ angular.module('core').controller('PlayerController',
 
         controller.config = {
             preload: "none",
-            //autoHide: false,
-            //autoHideTime: 3000,
             autoPlay: true,
             sources: controller.videos[0].sources
-            //theme: {
-            //    url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
-            //},
-            //plugins: {
-            //    poster: "http://www.videogular.com/assets/images/videogular.png"
-            //}
         };
 
         controller.setVideo = function(index) {
@@ -55,6 +45,7 @@ angular.module('core').controller('PlayerController',
             controller.config.sources = controller.videos[index].sources;
             $timeout(controller.API.play.bind(controller.API), 100);
         };
+
     }]
 );
 

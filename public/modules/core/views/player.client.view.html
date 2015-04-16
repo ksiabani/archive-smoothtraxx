@@ -1,7 +1,6 @@
 <!--<div class="row header" data-ng-controller="PlayerController" class="videogular-container">-->
 <div data-ng-controller="PlayerController as controller">
     <div class="row header" >
-        <button ng-click="alert('Hi!')">Button</button>
         <div class="col-xs-12">
             <div class="user pull-right">
                 <div class="item dropdown">
@@ -10,10 +9,11 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-header">
-                            <a ng-click="setVideo(0)"><span class="menu-icon fa fa-play"></span></a>
-                            <a href="/#!/library"><span class="menu-icon fa fa-backward"></span></a>
-                            <a href="" ng-click="list.addItem()">Add Item</a>
-                            <!--<i class="fa fa-chevron-up pointer" ng-click="upVote(student)"></i>-->
+                            <a ng-click="controller.API.play()"><span class="menu-icon fa fa-play"></span></a>
+                            <a ng-click="controller.API.pause()"><span class="menu-icon fa fa-pause"></span></a>
+                            <a ng-click="controller.API.stop()"><span class="menu-icon fa fa-stop"></span></a>
+                            <a ng-click="controller.setVideo(controller.currentVideo + 1)"><span class="menu-icon fa fa-forward"></span></a>
+                            <a ng-click="controller.setVideo(controller.currentVideo - 1)"><span class="menu-icon fa fa-backward"></span></a>
                         </li>
                         <li class="divider"></li>
                         <li class="link">
@@ -64,7 +64,7 @@
             </div>
         </div>
 
-    <videogular vg-auto-play="true">
+    <videogular vg-player-ready="controller.onPlayerReady($API)">
         <vg-media vg-src="controller.config.sources" vg-type="audio">
         </vg-media>
     </videogular>
