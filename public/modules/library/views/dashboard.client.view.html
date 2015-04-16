@@ -1,71 +1,44 @@
-<div data-ng-controller="LibraryController" data-ng-init="find()" class="row">
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon red pull-left">
-                    <i class="fa fa-wrench"></i>
-                </div>
-                <div class="title">80</div>
-                <div class="comment">Need fixing</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon green pull-left">
-                    <i class="fa fa-headphones"></i>
-                </div>
-                <div class="title">16</div>
-                <div class="comment">Unheard</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon orange pull-left">
-                    <i class="fa fa-plus-circle"></i>
-                </div>
-                <div class="title">225</div>
-                <div class="comment">New</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon blue pull-left">
-                    <i class="fa fa-list"></i>
-                </div>
-                <div class="title">62</div>
-                <div class="comment">Total</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
+<div data-ng-controller="LibraryController" data-ng-init="find()" class="container-fluid">
 
+    <nav mfb-menu position="br" effect="zoomin" label="hover here"
+         active-icon="ion-edit" resting-icon="ion-plus-round"
+         toggling-method="click">
+        <button mfb-button icon="paper-airplane" label="menu item"></button>
+    </nav>
 
-    <!--<div class="table-responsive">-->
-        <table st-table="rowCollection" class="table">
-            <thead>
-            <tr>
-                <th>first name</th>
-                <th>last name</th>
-                <th>birth date</th>
-                <th>balance</th>
-                <th>email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="row in rowCollection">
-                <td>{{row.firstName}}</td>
-                <td>{{row.lastName}}</td>
-                <td>{{row.birthDate}}</td>
-                <td>{{row.balance}}</td>
-                <td>{{row.email}}</td>
-            </tr>
-            </tbody>
-        </table>
-    <!--</div>-->
+    <div class="row">
+        <h1>Need fixing</h1>
+
+        <form class="form-horizontal">
+            <div class="form-group form-group-lg">
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Search Need fixing">
+                </div>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table st-table="rowCollection" class="table table-striped">
+                <thead>
+                <tr>
+                    <th st-ratio="20">first name</th>
+                    <th st-ratio="20">last name</th>
+                    <th st-ratio="20">birth date</th>
+                    <th st-ratio="20">balance</th>
+                    <th st-ratio="20">email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in rowCollection">
+                    <td>{{row.firstName}}</td>
+                    <td>{{row.lastName}}</td>
+                    <td>{{row.birthDate}}</td>
+                    <td>{{row.balance}}</td>
+                    <td>{{row.email}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </div>

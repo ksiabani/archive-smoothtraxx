@@ -16,7 +16,9 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
                 'public/lib/font-awesome/css/font-awesome.css',
-                'public/lib/rdash-ui/dist/css/rdash.css'
+                'public/lib/rdash-ui/dist/css/rdash.css',
+                'public/lib/ng-mfb/mfb/src/mfb.css',
+                'public/lib/ionicons/css/ionicons.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -29,7 +31,8 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/videogular/videogular.js',
-                'public/lib/angular-smart-table/dist/smart-table.js'
+                'public/lib/angular-smart-table/dist/smart-table.js',
+                'public/lib/ng-mfb/src/mfb-directive.js'
 			]
 		},
 		css: [

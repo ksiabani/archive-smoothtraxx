@@ -17,7 +17,10 @@
     "videogular": "~1.1.1",
     "rdash-ui": "~1.0.1",
     "font-awesome": "~4.3.0",
-    "angular-smart-table": "~2.0.2"
+    "angular-smart-table": "~2.0.2",
+    "ng-mfb": "~0.4.0",
+    "ionicons": "~2.0.1",
+    "angular-auto-height": "twygmbh/angular-auto-height"
   },
   "devDependencies": {}
 }

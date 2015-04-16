@@ -13,3 +13,16 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+.row.header .player-controls {
+    margin-top: 15px;
+}
+.row.header .player-controls a{
+    margin-left: 10px;
+}
+.row.header .player-cover img {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
