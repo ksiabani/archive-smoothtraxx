@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/groovity-library-dev',
+	db: 'mongodb://localhost/groovity-starter-dev',
 	app: {
 		title: 'groovity-library - Development Environment'
 	},

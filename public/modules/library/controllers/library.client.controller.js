@@ -90,31 +90,4 @@ angular.module('library')
                 {firstName: 'Francoise', lastName: 'Frere', birthDate: new Date('1955-08-27'), balance: 42343, email: 'raymondef@gmail.com'}
             ];
         }
-    ])
-    .directive('stRatio',function(){
-        return {
-            link:function(scope, element, attr){
-                var ratio=+(attr.stRatio);
-
-                element.css('width',ratio+'%');
-
-            }
-        };
-    });
-    //.directive('smartTable', function ($window) {
-    //
-    //    return {
-    //        restrict: 'A',
-    //
-    //        link: function (scope, elem, attrs) {
-    //
-    //            var winHeight = $window.innerHeight;
-    //
-    //            //var headerHeight = attrs.smartTable ? attrs.smartTable : 0;
-    //            var headerHeight = 100;
-    //
-    //            //elem.css('height', winHeight - headerHeight + 'px');
-    //            elem.css('height', '50px');
-    //        }
-    //    };
-    //});
+    ]);
