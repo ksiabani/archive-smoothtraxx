@@ -18,7 +18,8 @@ module.exports = {
                 'public/lib/font-awesome/css/font-awesome.css',
                 'public/lib/rdash-ui/dist/css/rdash.css',
                 'public/lib/ng-mfb/mfb/src/mfb.css',
-                'public/lib/ionicons/css/ionicons.css'
+                'public/lib/ionicons/css/ionicons.css',
+                'public/lib/angular-material/angular-material.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -32,7 +33,9 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/videogular/videogular.js',
                 'public/lib/angular-smart-table/dist/smart-table.js',
-                'public/lib/ng-mfb/src/mfb-directive.js'
+                'public/lib/ng-mfb/src/mfb-directive.js',
+                'public/lib/angular-material/angular-material.js',
+                'public/lib/angular-aria/angular-aria.js'
 			]
 		},
 		css: [
