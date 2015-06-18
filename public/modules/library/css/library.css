@@ -8,3 +8,37 @@
     /*text-overflow: ellipsis;*/
     white-space: nowrap;
 }
+
+/**  Trick to preserve 16:9 ratio for art covers:
+ *   http://stackoverflow.com/questions/12694919/cropping-the-image-to-aspect-ratio-in-bootstrap-responsive-grid
+ */
+.ratio{
+    position:relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 44% ; /* % of width, defines aspect ratio*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/** Text get (ellipsis) shortened when too long:
+ *  http://stackoverflow.com/questions/26912286/bootstrap-panel-title-having-a-title-text-with-ellipsis-and-buttons-on-right-si
+ */
+.panel-body h4, .panel-body h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*line-height: normal;*/
+    width: 95%;
+    /*padding-top: 8px;*/
+}
+
+/* Vertically align ellipsis menu in page header:
+ * http://jsfiddle.net/PKrUC/2/
+ */
+.el-menu {
+    bottom: 25px;
+    position: relative;
+    top: 25px;
+}
