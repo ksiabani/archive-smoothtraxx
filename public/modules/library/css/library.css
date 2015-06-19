@@ -16,7 +16,7 @@
     position:relative;
     width: 100%;
     height: 0;
-    padding-bottom: 44% ; /* % of width, defines aspect ratio*/
+    padding-bottom: 55% ; /* % of width, defines aspect ratio*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -34,11 +34,11 @@
     /*padding-top: 8px;*/
 }
 
-/* Vertically align ellipsis menu in page header:
+/* CSS for action menu in page header:
  * http://jsfiddle.net/PKrUC/2/
  */
-.el-menu {
-    bottom: 25px;
-    position: relative;
-    top: 25px;
-}
+/*.btn-group {*/
+    /*bottom: 15px;*/
+    /*position: relative;*/
+    /*top: 15px;*/
+/*}*/
