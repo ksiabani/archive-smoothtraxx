@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Tracks
  */
 exports.list = function(req, res) { 
-	Track.find().sort('-created').populate('user', 'displayName').exec(function(err, tracks) {
+	Track.find().sort('-created').populate('user', 'displayName').limit(8).exec(function(err, tracks) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

@@ -1,28 +1,13 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div>
-            <div class="ratio" style="background-image:url('http://lorempixel.com/300/300')" />
-        </div>
-
-        <h4 data-ng-bind="track.title"></h4>
-        <h5 data-ng-bind="track.artist"></h5>
-        <small data-ng-bind="track.publisher + ' - ' + track.genre"></small></h5>
-        <span class="pull-right clickable"><i class="fa fa-ellipsis-v"></i></span>
-
-        <!--<div class="media">-->
-            <!--<div class="media-left">-->
-                <!--<a href="#">-->
-                    <!--<img class="media-object" src="http://lorempixel.com/100/100" alt="...">-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="media-body">-->
-                <!--<h6 data-ng-bind="track.publisher"></h6>-->
-                <!--<h6 data-ng-bind="track.genre"></h6>-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<h5 data-ng-bind="track.artist + ' - ' + track.title"></h5>-->
-            <!--</div>-->
-        <!--</div>-->
+<div class="media">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="http://lorempixel.com/70/70" alt="...">
+        </a>
+    </div>
+    <div class="media-body">
+        <div class="track-card-title" data-ng-bind="track.artist + ' - ' + track.title"></div>
+        <div class="track-card-publisher small" data-ng-bind="track.publisher"></div>
+        <div class="track-card-genre small" data-ng-bind="track.genre"></div>
     </div>
 </div>
 
