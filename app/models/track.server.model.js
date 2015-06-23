@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    mongoosePaginate = require('mongoose-paginate');
 
 /**
  * Track Schema
@@ -74,6 +75,8 @@ var TrackSchema = new Schema({
     }
 });
 
+TrackSchema.plugin(mongoosePaginate);
 TrackSchema.index({ artist: 1, title: 1, album: 1 });
 
 mongoose.model('Track', TrackSchema);
+

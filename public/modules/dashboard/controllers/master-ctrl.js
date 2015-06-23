@@ -1,9 +1,9 @@
+'use strict';
 /**
  * Master Controller
  */
 
-angular.module('dashboard')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
+
 
 function MasterCtrl($scope, $cookieStore) {
     /**
@@ -18,7 +18,7 @@ function MasterCtrl($scope, $cookieStore) {
     $scope.$watch($scope.getWidth, function(newValue, oldValue) {
         if (newValue >= mobileView) {
             if (angular.isDefined($cookieStore.get('toggle'))) {
-                $scope.toggle = ! $cookieStore.get('toggle') ? false : true;
+                $scope.toggle = $cookieStore.get('toggle');
             } else {
                 $scope.toggle = true;
             }
@@ -37,3 +37,7 @@ function MasterCtrl($scope, $cookieStore) {
         $scope.$apply();
     };
 }
+
+
+angular.module('dashboard')
+    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);

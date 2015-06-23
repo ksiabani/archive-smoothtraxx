@@ -6,7 +6,8 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Track = mongoose.model('Track'),
-	_ = require('lodash');
+	_ = require('lodash')
+	;
 
 /**
  * Create a Track
@@ -53,7 +54,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an Track
+ * Delete a Track
  */
 exports.delete = function(req, res) {
 	var track = req.track ;
@@ -72,8 +73,8 @@ exports.delete = function(req, res) {
 /**
  * List of Tracks
  */
-exports.list = function(req, res) { 
-	Track.find().sort('-created').populate('user', 'displayName').limit(8).exec(function(err, tracks) {
+exports.list = function(req, res) {
+	Track.find().sort('-created').populate('user', 'displayName').limit(20).exec(function(err, tracks) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -105,3 +106,24 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+
+exports.paginate = function(req, res, next) {
+
+  var queryPage = req.query.page;
+  var queryLimit = req.query.limit;
+
+  //queryPage = 1;
+  //queryLimit = 8;
+
+  Track.paginate({}, queryPage, queryLimit, function(err, pageCount, tracks, itemCount) {
+	if (err) {
+	  return res.status(400).send({
+		message: errorHandler.getErrorMessage(err)
+	  });
+	} else {
+	  res.jsonp(tracks);
+	}
+  });
+
+};
+

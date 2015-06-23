@@ -6,9 +6,16 @@ angular.module('library')
         function($scope, $stateParams, $location, Authentication, Tracks) {
             $scope.authentication = Authentication;
 
+
+
+
+            $scope.queryPage = 1;
+            $scope.queryLimit = 8;
+
             // Find a list of Tracks
             $scope.find = function() {
-                $scope.tracks = Tracks.query();
+                //$scope.tracks = Tracks.query({p: 'item/1'});
+                $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
             };
 
             // Find existing Track
@@ -17,5 +24,10 @@ angular.module('library')
                     trackId: $stateParams.trackId
                 });
             };
+
+            $scope.showMore = function () {
+                $scope.queryLimit *= 2;
+                $scope.find();
+            }
         }
     ]);
