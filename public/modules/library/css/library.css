@@ -12,14 +12,23 @@
 /**  Trick to preserve 16:9 ratio for art covers:
  *   http://stackoverflow.com/questions/12694919/cropping-the-image-to-aspect-ratio-in-bootstrap-responsive-grid
  */
-/*.ratio{*/
+/*.thumbnail {*/
     /*position:relative;*/
     /*width: 100%;*/
-    /*height: 0;*/
-    /*padding-bottom: 55% ; /!* % of width, defines aspect ratio*!/*/
+    /*height: 100%;*/
+    /*padding-bottom: 80% ; /!* % of width, defines aspect ratio*!/*/
     /*background-repeat: no-repeat;*/
     /*background-position: center center;*/
     /*background-size: cover;*/
+/*}*/
+
+/*.carousel-caption {*/
+    /*font-size: large;*/
+    /*/!*color: white;*!/*/
+    /*/!*text-shadow: #444 0 1px 1px;*!/*/
+    /*/!*text-align: right;*!/*/
+    /*padding-top: 65%*/
+
 /*}*/
 
 /* Large desktops and laptops */
@@ -124,3 +133,25 @@
     /*position: relative;*/
     /*top: 15px;*/
 /*}*/
+
+
+.jumbotron {
+    position: relative;
+    background: #000 url("http://lorempixel.com/500/500") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    text-shadow: #444 0 1px 1px;
+}
+
+/*.page-header {*/
+    /*padding-bottom: 9px;*/
+    /*margin: 0; /!*40px 0 20px;*!/*/
+    /*border-bottom: 1px solid #D2E0E6;*/
+/*}*/
+
+.list-group a {
+    background: #000 url("http://lorempixel.com/500/500") center center;
+}

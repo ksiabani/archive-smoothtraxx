@@ -10,7 +10,7 @@ angular.module('library')
 
 
             $scope.queryPage = 1;
-            $scope.queryLimit = 8;
+            $scope.queryLimit = 4;
 
             // Find a list of Tracks
             $scope.find = function() {
