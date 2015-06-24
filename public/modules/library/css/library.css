@@ -73,7 +73,7 @@
     .track-card-title {
         /*font-size: smaller;*/
         overflow: hidden;
-        max-height: 20px;
+        max-height: 10px;
     }
 
     /*.media-body {*/
@@ -109,7 +109,7 @@
 
 .track-card-publisher, .track-card-genre {
     /*font-size: smaller;*/
-    color: grey;
+    /*color: grey;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
