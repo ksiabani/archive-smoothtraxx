@@ -26,3 +26,15 @@
     width: 40px;
     height: 40px;
 }
+/*mine*/
+.jumbotron {
+    position: relative;
+    background: #000 url("http://lorempixel.com/600/600") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    text-shadow: #444 0 1px 1px;
+}
+

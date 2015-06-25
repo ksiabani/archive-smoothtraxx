@@ -45,26 +45,26 @@
 
 </head>
 <body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+  <!--<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>-->
 
     <!-- Sidebar -->
-      <sidebar data-ng-include="'/modules/core/views/sidebar.client.view.html'"></sidebar>
+      <!--<sidebar data-ng-include="'/modules/core/views/sidebar.client.view.html'"></sidebar>-->
     <!-- End Sidebar -->
 
-    <div id="content-wrapper">
-      <div class="page-content">
+    <!--<div id="content-wrapper">-->
+      <!--<div class="page-content">-->
 
         <!-- Header Bar -->
-          <header data-ng-include="'/modules/core/views/player.client.view.html'"></header>
+          <!--<header data-ng-include="'/modules/core/views/player.client.view.html'"></header>-->
           <!--<header data-ng-include="'/modules/core/views/header.client.view.html'"></header>-->
         <!-- End Header Bar -->
 
         <!-- Main Content -->
         <div ui-view></div>
 
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-  </div><!-- End Page Wrapper -->
+      <!--</div>&lt;!&ndash; End Page Content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; End Content Wrapper &ndash;&gt;-->
+  <!--</div>&lt;!&ndash; End Page Wrapper &ndash;&gt;-->
 
   <!--Application JavaScript Files-->
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}

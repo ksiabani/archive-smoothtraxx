@@ -135,16 +135,6 @@
 /*}*/
 
 
-.jumbotron {
-    position: relative;
-    background: #000 url("http://lorempixel.com/500/500") center center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    overflow: hidden;
-    color: white;
-    text-shadow: #444 0 1px 1px;
-}
 
 /*.page-header {*/
     /*padding-bottom: 9px;*/
