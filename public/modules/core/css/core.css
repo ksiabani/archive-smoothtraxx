@@ -59,6 +59,7 @@
     /*/!*padding-bottom: 5px;*!/*/
 /*}*/
 
+/* List groups */
 .list-special .list-group-item{
     border: 0 !important;
     padding-left: 5px;
@@ -74,6 +75,33 @@
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+/* List groups */
+
+/*  CSS for sticky search input as seen here:
+ ** http://www.mentful.com/2014/06/22/fixed-search-navbar-with-bootstrap-3-0/
+ */
+@media(max-width:767px) {
+    .navbar .navbar-form {
+        width: 185px;
+        padding-left:0;
+        padding-right:0;
+    }
+}
+@media(min-width:768px) {
+    .navbar .navbar-form {
+        width: 250px;
+    }
+}
+.navbar .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* sticky search input */
 
 /*/!* Spinkit *!/*/
 /*.sk-spinner-pulse.sk-spinner {*/
