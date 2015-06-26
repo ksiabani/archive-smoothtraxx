@@ -11,6 +11,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		state('home', {
 			url: '/',
 			templateUrl: 'modules/core/views/home.client.view.html'
+		}).
+		state('music', {
+			url: '/music',
+			templateUrl: 'modules/core/views/music.client.view.html'
+		}).
+		state('radio', {
+			url: '/radio',
+			templateUrl: 'modules/core/views/radio.client.view.html'
 		});
 	}
 ]);

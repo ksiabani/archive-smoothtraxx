@@ -1,13 +1,13 @@
 /* Custom CSS */
 
 /* Prevent media heading wrap */
-.media-heading {
+/*.media-heading {*/
    /*display: inline-block;*/
    /*max-width: 180px;*/
    /*overflow: hidden;*/
     /*text-overflow: ellipsis;*/
-    white-space: nowrap;
-}
+    /*white-space: nowrap;*/
+/*}*/
 
 /**  Trick to preserve 16:9 ratio for art covers:
  *   http://stackoverflow.com/questions/12694919/cropping-the-image-to-aspect-ratio-in-bootstrap-responsive-grid
@@ -34,9 +34,9 @@
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 
-    .media {
-        padding-top: 10px;
-    }
+    /*.media {*/
+        /*padding-top: 10px;*/
+    /*}*/
 
     .panel-body {
         padding-top: 1px;
@@ -62,9 +62,9 @@
         padding: 1px;
     }
 
-    .media {
-        padding-top: 5px;
-    }
+    /*.media {*/
+        /*padding-top: 5px;*/
+    /*}*/
 
 
 }
@@ -75,9 +75,9 @@
         padding: 1px;
     }
 
-    .media {
-        padding-top: 5px;
-    }
+    /*.media {*/
+        /*padding-top: 5px;*/
+    /*}*/
 
     .track-card-title {
         /*font-size: smaller;*/
@@ -142,6 +142,6 @@
     /*border-bottom: 1px solid #D2E0E6;*/
 /*}*/
 
-.list-group a {
-    background: #000 url("http://lorempixel.com/500/500") center center;
-}
+/*.list-group a {*/
+    /*background: #000 url("http://lorempixel.com/500/500") center center;*/
+/*}*/
