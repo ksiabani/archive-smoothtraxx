@@ -10,87 +10,28 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#!">Groovity</a>
-            <!--<form class="navbar-form navbar-left">-->
-                <!--<div class="input-group">-->
-                    <!--<img src="http://lorempixel.com/34/34" alt="...">-->
-                <!--</div>-->
-                <!--<div class="input-group">-->
-                    <!--<div class="small">Track title here</div>-->
-                    <!--<div class="small">Artist name here</div>-->
-                <!--</div>-->
-                <!--<div class="input-group">-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-backward fa-2x"></i></a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-play fa-2x"></i></a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-forward fa-2x"></i></a>&ndash;&gt;-->
-                    <!--<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>-->
-                    <!--<span class="glyphicon glyphicon-play" aria-hidden="true"></span>-->
-                    <!--<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>-->
-                <!--</div>-->
-            <!--</form>-->
+
+            <form class="navbar-form pull-left" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <!--<div class="input-group-btn">-->
+                    <!--<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>-->
+                    <!--</div>-->
+                </div>
+            </form>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <!--<ul class="nav navbar-nav">-->
-                <!--<li><a href="#">Music</a></li>-->
-                <!--<li><a href="#">Radio</a></li>-->
-                <!--<li><a href="#">Sign in</a></li>-->
-            <!--</ul>-->
-            <!--<form class="navbar-form navbar-left" role="search">-->
-                <!--<div class="form-group">-->
-                    <!--<input type="text" class="form-control" placeholder="Search">-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"-->
-                                                                    <!--aria-hidden="true"></span></button>-->
-            <!--</form>-->
-            <!--<div class="navbar-nav">-->
-            <!--<img src="http://lorempixel.com/50/50" alt="...">-->
-            <!--Artist-->
-            <!--Title-->
+            <!--<form class="navbar-form navbar-right" role="search">-->
+            <!--<div class="form-group">-->
+            <!--<input type="text" class="form-control" placeholder="Search">-->
             <!--</div>-->
-            <!--<form class="navbar-form navbar-left">-->
-                <!--<div class="input-group">-->
-                    <!--<img src="http://lorempixel.com/34/34" alt="...">-->
-                <!--</div>-->
-                <!--<div class="input-group">-->
-                    <!--<div class="small">Track title here</div>-->
-                    <!--<div class="small">Artist name here</div>-->
-                <!--</div>-->
-                <!--<div class="input-group">-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-backward fa-2x"></i></a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-play fa-2x"></i></a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a href="#"><i class="fa fa-forward fa-2x"></i></a>&ndash;&gt;-->
-                    <!--<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>-->
-                    <!--<span class="glyphicon glyphicon-play" aria-hidden="true"></span>-->
-                    <!--<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>-->
-                <!--</div>-->
+            <!--<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"-->
+            <!--aria-hidden="true"></span></button>-->
             <!--</form>-->
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
-                                                                    aria-hidden="true"></span></button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/#!/music">Music</a></li>
+                <li class="active"><a href="/#!/music">Music</a></li>
                 <li><a href="/#!/radio">Radio</a></li>
                 <li><a href="#">Sign in</a></li>
-                <!--<li><a href="../navbar/">Sign in</a></li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
-                       <!--aria-expanded="false">-->
-                        <!--&lt;!&ndash;Dropdown <span class="caret"></span>&ndash;&gt;-->
-                        <!--<span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">Action</a></li>-->
-                        <!--<li><a href="#">Another action</a></li>-->
-                        <!--<li><a href="#">Something else here</a></li>-->
-                        <!--<li role="separator" class="divider"></li>-->
-                        <!--<li class="dropdown-header">Nav header</li>-->
-                        <!--<li><a href="#">Separated link</a></li>-->
-                        <!--<li><a href="#">One more separated link</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
             </ul>
 
         </div>
@@ -98,20 +39,31 @@
     </div>
 </nav>
 
-<div class="container">
-
-    <!-- Main component for a primary marketing message or call to action -->
+<!--Jumbotron shown in all but small devices-->
+<div class="container hidden-xs">
     <div class="jumbotron">
         <h1>Navbar example</h1>
 
         <p>To see the difference between static and fixed top navbars, just scroll.</p>
 
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        <p><a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
     </div>
-
+</div>
 </div> <!-- /container -->
+
+<!--Jumbotron shown in small devices-->
+<div class="jumbotron visible-xs">
+    <div class="container">
+        <h1>Navbar example</h1>
+
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+
+        <p><a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+    </div>
+</div>
+</div> <!-- /jumbotron -->
 
 <div class="container">
     <!-- Example row of columns -->
@@ -196,31 +148,36 @@
     </div>
 
 
-<hr>
+    <hr>
 
 
 </div> <!-- /container -->
 
-<div class="container">
-
-    <!-- Main component for a primary marketing message or call to action -->
+<!--Jumbotron shown in all but small devices-->
+<div class="container hidden-xs">
     <div class="jumbotron">
         <h1>Navbar example</h1>
 
         <p>To see the difference between static and fixed top navbars, just scroll.</p>
 
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        <p><a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
     </div>
-
-    <hr>
-
-    <!--<footer>-->
-    <!--<p>&copy; Company 2014</p>-->
-    <!--</footer>-->
-
+</div>
 </div> <!-- /container -->
+
+<!--Jumbotron shown in small devices-->
+<div class="jumbotron visible-xs">
+    <div class="container">
+        <h1>Navbar example</h1>
+
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+
+        <p><a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+    </div>
+</div>
+</div> <!-- /jumbotron -->
 
 <!--sticky footer as here:
     http://stackoverflow.com/questions/17966140/twitter-bootstrap-3-sticky-footer?answertab=oldest#tab-top
@@ -228,11 +185,11 @@
 <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <p class="navbar-text pull-left">© 2014 - Site Built By Mr. M.
-            <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+            <a href="http://tinyurl.com/tbvalid" target="_blank">HTML 5 Validation</a>
         </p>
 
         <!--<a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">-->
-            <!--<span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>-->
+        <!--<span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>-->
     </div>
 
 

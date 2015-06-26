@@ -47,8 +47,9 @@
     /*border-bottom: 1px solid #ddd;*/
 /*}*/
 
-.page-header h4 {
+.container h4 {
     color: grey;
+    margin-bottom: 20px;
 }
 
 /*.media {*/
