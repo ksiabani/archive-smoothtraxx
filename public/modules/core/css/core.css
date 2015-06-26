@@ -37,3 +37,53 @@
     color: white;
     text-shadow: #444 0 1px 1px;
 }
+
+/*.media {*/
+    /*/!*border-top: 1px solid #ddd;*!/*/
+    /*/!*border-bottom: 1px solid #ddd;*!/*/
+    /*margin-top: 0px;*/
+    /*/!*margin-bottom: 5px;*!/*/
+    /*/!*padding-bottom: 5px;*!/*/
+/*}*/
+
+
+/*.list-special .list-group-item:first-child {*/
+    /*border-top-right-radius: 0px;*/
+    /*border-top-left-radius: 0px;*/
+    /*border-left: 0px;*/
+    /*border-right: 0px;*/
+/*}*/
+
+/*.list-special .list-group-item:last-child {*/
+    /*border-bottom-right-radius: 0px;*/
+    /*border-bottom-left-radius: 0px;*/
+    /*border-left: 0px;*/
+    /*border-right: 0px;*/
+/*}*/
+
+/*/!* Spinkit *!/*/
+/*.sk-spinner-pulse.sk-spinner {*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*margin: 0 auto;*/
+    /*background-color: #333;*/
+    /*border-radius: 100%;*/
+    /*-webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;*/
+    /*animation: sk-pulseScaleOut 1s infinite ease-in-out; }*/
+/*@-webkit-keyframes sk-pulseScaleOut {*/
+    /*0% {*/
+        /*-webkit-transform: scale(0);*/
+        /*transform: scale(0); }*/
+    /*100% {*/
+        /*-webkit-transform: scale(1);*/
+        /*transform: scale(1);*/
+        /*opacity: 0; } }*/
+/*@keyframes sk-pulseScaleOut {*/
+    /*0% {*/
+        /*-webkit-transform: scale(0);*/
+        /*transform: scale(0); }*/
+    /*100% {*/
+        /*-webkit-transform: scale(1);*/
+        /*transform: scale(1);*/
+        /*opacity: 0; } }*/
+/* Spinkit */
