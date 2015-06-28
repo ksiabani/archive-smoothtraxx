@@ -88,7 +88,7 @@
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
-/* List groups */
+/* /List groups */
 
 /*  CSS for sticky search input as seen here:
  ** http://www.mentful.com/2014/06/22/fixed-search-navbar-with-bootstrap-3-0/
@@ -114,7 +114,7 @@
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-/* sticky search input */
+/* /Sticky search input */
 
 /*/!* Spinkit *!/*/
 /*.sk-spinner-pulse.sk-spinner {*/
@@ -141,31 +141,38 @@
         /*-webkit-transform: scale(1);*/
         /*transform: scale(1);*/
         /*opacity: 0; } }*/
-/* Spinkit */
+/* /Spinkit */
 
 .jumbotron {
     position: relative;
     background: #000 url("http://lorempixel.com/600/600") center center;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     background-size: cover;
     overflow: hidden;
     color: white;
     text-shadow: #444 0 1px 1px;
 }
 
-html,body {height:100%;width:100%;}
-.ng-scope .jumbotron div, .ng-scope .container-special, .jumbotron .container-special, .ng-scope .jumbotron .container-special, .ng-scope .jumbotron .container
-{height:100%;width:100%;}
-/*.ng-scope .jumbotron {background-color:inherit;}*/
-.ng-scope .container-special {width:100%;height:100%;max-width:100%;background-position:center;background-size:cover;}
-.ng-scope .jumbotron,.ng-scope .jumbotron .container, .ng-scope .jumbotron .container-special {height:100%;width:100%;}
+/* an attempt to use full screen on mobile for tracks, will continue later */
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    html,body, .ng-scope {height:100%;width:100%;}
+    /*.ng-scope {min-height: 100%; }*/
+    /*.trackotron .container-trackotron {height:100%}*/
+    .ng-scope .navbar, .ng-scope .container {height: auto; margin-bottom: 0px;}
+    /*.ng-scope .jumbotron {background-color:inherit;}*/
+    /*.ng-scope .container-special {width:100%;height:100%;max-width:100%;background-position:center;background-size:cover;}*/
+    /*.ng-scope .jumbotron,.ng-scope .jumbotron .container, .ng-scope .jumbotron .container-special {height:100%;width:100%;}*/
+    .halfotron { height: 50%; }
+}
 
-/*
-<div class="ng-scope">
-    <div class="jumbotron">
-      <div class="container container-special">
-      </div>
-    </div>
-</div>
-*/
+i.track-play.ion-play {
+    font-size: 40px;
+}
+
+
+.xxlarge {
+    font-size: xx-large;
+}
+

@@ -39,33 +39,9 @@
     </div>
 </nav>
 
-<!--&lt;!&ndash;Jumbotron shown in small devices&ndash;&gt;-->
-<!--<div class="jumbotron trackotron visible-xs">-->
-<!--<div class="container">-->
-<!--<h1>Track title here</h1>-->
-<!--<h2>Artist name here</h2>-->
-<!--<p><a class="btn btn-lg btn-primary pull-right" href="" role="button">Play<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>-->
-<!--</p>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div> &lt;!&ndash; /jumbotron &ndash;&gt;-->
-
-<!--<div class="container-full-bg" style="background-image:url('//placehold.it/1024x700/449955/FFF');">-->
-<!--<div class="container special">-->
-<!--<div class="jumbotron">One</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="container">-->
-<!--<hr>-->
-<!--<div class="jumbotron">Two</div>-->
-<!--<hr>-->
-<!--<div class="jumbotron">Three</div>-->
-<!--</div>-->
-
 <!--Jumbotron shown in all but small devices-->
-<div class="jumbotron">
-    <div class="container container-special">
-
+<div class="container container-special hidden-xs">
+    <div class="jumbotron">
         <h1>Track title here</h1>
 
         <h2>Artist name here</h2>
@@ -74,4 +50,46 @@
                                                                                         aria-hidden="true"></span></a>
         </p>
     </div>
+</div>
 </div> <!-- /container -->
+
+<!--Jumbotron shown in small devices-->
+<div class="jumbotron trackotron visible-xs">
+
+    <div class="container-trackotron">
+
+        <div class="media">
+            <div class="media-left">
+                <!--<a href="/#!/tracks/55152fc937a239a149385695">-->
+                    <!--<i class="fa fa-play-circle-o fa-3x pull-left"></i>-->
+                <!--</a>-->
+                <i class="icon xxlarge ion-play"></i>
+            </div>
+            <div class="media-body">
+                <a href="#" class="pull-right hidden-xs">
+                    <!--<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>-->
+                    <small>125 likes</small>
+                </a>
+                <strong>A very long track title goes here</strong> <br/>
+                <a href="#" class="pull-right hidden-xs">
+                    <!--<span class="glyphicon glyphicon-record" aria-hidden="true"></span>-->
+                    <small>Sandman Records</small>
+                </a>
+                And the also large artist name here<br/>
+                <small>on Sandman Records</small>
+                <a href="#" class="pull-right hidden-xs">
+                    <!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>-->
+                    <small>Deep House</small></a><br/>
+
+                <div class="" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-share-square-o fa-1x"></i></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x">1250</i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> <!-- /jumbotron -->
+
+
