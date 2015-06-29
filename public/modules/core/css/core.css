@@ -73,18 +73,22 @@
 /*}*/
 
 /* List groups */
-.list-special .list-group-item{
-    border: 0 !important;
+.list-tracks .list-group-item{
+    /*border: 0 !important;*/
+    border-left: 0 !important;
+    border-right: 0 !important;
     padding-left: 5px;
     padding-right: 5px;
+    border-bottom: 1px solid #ddd;
 }
 
-.list-special .list-group-item:first-child {
+.list-tracks .list-group-item:first-child {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+    border-top: 0 !important;
 }
 
-.list-special .list-group-item:last-child {
+.list-tracks .list-group-item:last-child {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
@@ -157,19 +161,18 @@
 /* an attempt to use full screen on mobile for tracks, will continue later */
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-    html,body,.ng-scope {height:100%; width:100%;}
-    .ng-scope .trackotron, .ng-scope .container-trackotron { height:100%; }
+    /*html,body,.ng-scope {height:100%; width:100%;}*/
+    /*.ng-scope .trackotron, .ng-scope .container-trackotron { height:100%; }*/
     /*.ng-scope .navbar, .ng-scope .container, #header {height: auto; margin-bottom: 0px;}*/
     /*.ng-scope .jumbotron {background-color:inherit;}*/
     /*.ng-scope .container-special {width:100%;height:100%;max-width:100%;background-position:center;background-size:cover;}*/
     /*.ng-scope .jumbotron,.ng-scope .jumbotron .container, .ng-scope .jumbotron .container-special {height:100%;width:100%;}*/
-    .halfotron { height: 50%; }
+    /*.halfotron { height: 50%; }*/
 }
 
 i.track-play.ion-play {
     font-size: 40px;
 }
-
 
 .xxlarge {
     font-size: xx-large;
