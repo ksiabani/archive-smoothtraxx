@@ -178,3 +178,11 @@ i.track-play.ion-play {
     font-size: xx-large;
 }
 
+.navbar-fixed-bottom .media {
+    padding-top: 5px;
+}
+
+.navbar-fixed-bottom .media-body i {
+    padding-left: 10px;
+}
+
