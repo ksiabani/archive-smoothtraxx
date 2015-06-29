@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>Smoothtraxx</title>
+    <title>Smoothtraxx</title>
 
     <!-- General META -->
     <meta charset="utf-8">
@@ -36,7 +36,9 @@
     <link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
     <!--Application CSS Files-->
-    {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
+    {% for cssFile in cssFiles %}
+    <link rel="stylesheet" href="{{cssFile}}">
+    {% endfor %}
 
     <!-- HTML5 Shim -->
     <!--[if lt IE 9]>
@@ -44,36 +46,27 @@
     <![endif]-->
 
 </head>
-<body ng-controller="MasterCtrl">
-  <!--<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>-->
 
-    <!-- Sidebar -->
-      <!--<sidebar data-ng-include="'/modules/core/views/sidebar.client.view.html'"></sidebar>-->
-    <!-- End Sidebar -->
+<body class="ng-cloak">
+    <div id="header" data-ng-include="'/modules/core/views/header.client.view.html'"></div>
+    <div>
+            {% block content %}{% endblock %}
+    </div>
 
-    <!--<div id="content-wrapper">-->
-      <!--<div class="page-content">-->
+    <!--Embedding The User Object-->
+    <!--<script type="text/javascript">-->
+        <!--var user = {{ user | json | safe }};-->
+    <!--</script>-->
 
-        <!-- Header Bar -->
-          <!--<header data-ng-include="'/modules/core/views/player.client.view.html'"></header>-->
-          <!--<header data-ng-include="'/modules/core/views/header.client.view.html'"></header>-->
-        <!-- End Header Bar -->
+    <!--Application JavaScript Files-->
+    {% for jsFile in jsFiles %}
+    <script type="text/javascript" src="{{jsFile}}"></script>
+    {% endfor %}
 
-        <!-- Main Content -->
-        <div ui-view></div>
-
-      <!--</div>&lt;!&ndash; End Page Content &ndash;&gt;-->
-    <!--</div>&lt;!&ndash; End Content Wrapper &ndash;&gt;-->
-  <!--</div>&lt;!&ndash; End Page Wrapper &ndash;&gt;-->
-
-  <!--Application JavaScript Files-->
-  {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
-
-  {% if process.env.NODE_ENV === 'development' %}
-  <!--Livereload script rendered -->
-  <script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
-  {% endif %}
-
-
+    {% if process.env.NODE_ENV === 'development' %}
+    <!--Livereload script rendered -->
+    <script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
+    {% endif %}
 </body>
 </html>
+
