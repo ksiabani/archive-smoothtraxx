@@ -186,3 +186,8 @@ i.track-play.ion-play {
     padding-left: 10px;
 }
 
+.navbar-brand img {
+    height: 40px;
+    width: 40px;
+    margin-top: -10px;
+}
