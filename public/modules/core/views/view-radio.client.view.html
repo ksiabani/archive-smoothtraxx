@@ -1,33 +1,69 @@
-<div class="container">
+<!--Jumbotron shown in all but small devices-->
+<div class="container container-special hidden-xs">
+    <div class="jumbotron">
 
-    <!-- Page header -->
-    <!--<div class="page-header hidden-xs">-->
-    <h4>Discover house music on Smoothtraxx</h4>
-    <!--</div>-->
-    <!-- Page header -->
+        <div class="media">
+            <div class="media-left">
+                <a href="/#!/tracks/55152fc937a239a149385695">
+                    <img class="media-object" src="http://lorempixel.com/60/60" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <strong>A very long track title goes here</strong> <br/>
+                And the also large artist name here<br/>
+                <small style="color:grey;">now playing on Soulful House channel</small>
+                <div class="" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-share-square-o fa-1x"></i></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-bullhorn fa-1x"> Tune in</i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div> <!-- /container -->
+
+<!--Jumbotron shown in small devices-->
+<div class="jumbotron trackotron visible-xs">
+
+    <div class="container-trackotron">
+
+        <div class="media">
+            <div class="media-left">
+                <a href="/#!/tracks/55152fc937a239a149385695">
+                    <img class="media-object" src="http://lorempixel.com/60/60" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <strong>A very long track title goes here</strong> <br/>
+                And the also large artist name here<br/>
+                <small style="color:grey;">now playing on Soulful House channel</small>
+                <div class="" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-share-square-o fa-1x"></i></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-bullhorn fa-1x"> Tune in</i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> <!-- /jumbotron -->
+
+<div class="container">
 
     <!--Tabs-->
     <div class="row">
         <div class="col-md-9">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Trending</a></li>
-                <li role="presentation"><a href="#">New</a></li>
+                <li role="presentation" class="active"><a href="#">Coming up</a></li>
+                <li role="presentation"><a href="#">Just played</a></li>
                 <!--<li role="presentation" class="pull-right"><a href="#">Play all<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></li>-->
-                <li role="presentation" class="pull-right"><a href="#"><i class="icon ion-play">All</i></a></li>
-                <li role="presentation" class="dropdown pull-right">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                       aria-expanded="false">
-                        Filter <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        ...
-                    </ul>
-                </li>
-
+                <!--<li role="presentation" class="pull-right"><a href="#"><i class="icon ion-play">All</i></a></li>-->
             </ul>
         </div>
     </div>
     <!--Tabs-->
+
+
 
     <div class="row">
         <div class="col-md-9">
@@ -78,22 +114,11 @@
                 </div>
             </div>
 
-            <!--<div class="list-group">-->
-            <!--<a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">-->
-            <!--<small class="list-group-item-text">-->
-            <!--Posted on-->
-            <!--<span data-ng-bind="article.created | date:'mediumDate'"></span>-->
-            <!--by-->
-            <!--<span data-ng-bind="article.user.displayName"></span>-->
-            <!--</small>-->
-            <!--<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>-->
-            <!--<p class="list-group-item-text" data-ng-bind="article.content"></p>-->
-            <!--</a>-->
-            <!--</div>-->
-
 
         </div>
 
 
     </div>
 </div>
+
+
