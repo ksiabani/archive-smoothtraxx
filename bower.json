@@ -15,9 +15,7 @@
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.11",
     "videogular": "~1.1.1",
-    "rdash-ui": "~1.0.1",
     "font-awesome": "~4.3.0",
-    "ng-mfb": "~0.4.0",
     "ionicons": "~2.0.1"
   },
   "devDependencies": {}
