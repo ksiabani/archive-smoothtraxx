@@ -16,7 +16,8 @@
     "angular-ui-router": "~0.2.11",
     "videogular": "~1.1.1",
     "font-awesome": "~4.3.0",
-    "ionicons": "~2.0.1"
+    "ionicons": "~2.0.1",
+    "ngInfiniteScroll": "~1.2.1"
   },
   "devDependencies": {}
 }

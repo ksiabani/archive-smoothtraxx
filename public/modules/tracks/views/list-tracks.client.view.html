@@ -1,6 +1,7 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
-    <div class="container">
 
+    <!--<div infinite-scroll="myPagingFunction()" infinite-scroll-distance="3"></div>-->
+    <div class="container">
         <!-- Page header -->
         <!--<div class="page-header hidden-xs">-->
         <h4>Discover <a>house<span class="caret"></span></a> music</h4>
@@ -25,63 +26,20 @@
                             <!--...-->
                         <!--</ul>-->
                     <!--</li>-->
-
                 </ul>
             </div>
         </div>
         <!--Tabs-->
 
+        <div infinite-scroll="findMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='0'></div>
         <div class="row">
             <div class="col-md-9">
                 <div class="list-group list-tracks">
-                    <div class="list-group-item">
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="/#!/tracks/55152fc937a239a149385695">
-                                    <img class="media-object" src="http://lorempixel.com/60/60" alt="...">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="pull-right hidden-xs" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x">123</i>
-                                    </button>
-                                </div>
-                                <strong>A very long track title goes here</strong> <br/>
-                                And the also large artist name here<br/>
-                                <small style="color:grey;">on Sandman Records, Deep House</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="/#!/tracks/55152fc937a239a149385695">
-                                    <img class="media-object" src="http://lorempixel.com/60/60" alt="...">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="pull-right hidden-xs" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x">123</i>
-                                    </button>
-                                </div>
-                                <strong>A very long track title goes here</strong> <br/>
-                                And the also large artist name here<br/>
-                                <small style="color:grey;">on Sandman Records, Deep House</small>
-                            </div>
-                        </div>
+                    <div class="list-group-item" data-ng-repeat="track in tracks">
+                        <div track-card></div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </section>
