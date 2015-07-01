@@ -12,34 +12,55 @@
         <div class="row">
             <div class="col-md-9">
                 <ul class="nav nav-tabs nav-justified">
-                    <li role="presentation" class="active"><a href="#"><i class="fa fa-line-chart"></i> Trending</a></li>
+                    <li role="presentation" class="active"><a href="#"><i class="fa fa-line-chart"></i> Trending</a>
+                    </li>
                     <li role="presentation"><a href="#"><i class="fa fa-calendar-o"></i> New</a></li>
                     <li role="presentation"><a href="#"><i class="fa fa-clock-o"></i> Queue</a></li>
                     <!--<li role="presentation" class="pull-right"><a href="#">Play all<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></li>-->
                     <!--<li role="presentation" class="pull-right"><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>-->
                     <!--<li role="presentation" class="dropdown pull-right">-->
-                        <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"-->
-                           <!--aria-expanded="false">-->
-                            <!--Filter <span class="caret"></span>-->
-                        <!--</a>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--...-->
-                        <!--</ul>-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+                    <!--Filter <span class="caret"></span>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--...-->
+                    <!--</ul>-->
                     <!--</li>-->
                 </ul>
             </div>
         </div>
         <!--Tabs-->
 
-        <div infinite-scroll="findMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='0'></div>
+
         <div class="row">
             <div class="col-md-9">
-                <div class="list-group list-tracks">
-                    <div class="list-group-item" data-ng-repeat="track in tracks">
-                        <div track-card></div>
+                <div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
+                    <div class="list-group list-tracks">
+                        <div class="list-group-item" data-ng-repeat="track in tracks">
+                            <div track-card></div>
+                        </div>
                     </div>
+                    <div ng-show="busy">Loading data...</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<!--<div ng-app='myApp' ng-controller='DemoController'>-->
+<!--<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>-->
+<!--<div ng-repeat='item in reddit.items'>-->
+<!--<span class='score'>{{item.score}}</span>-->
+<!--<span class='title'>-->
+<!--<a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>-->
+<!--</span>-->
+<!--<small>by {{item.author}} - -->
+<!--<a ng-href='http://reddit.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>-->
+<!--</small>-->
+<!--<div style='clear: both;'></div>-->
+<!--</div>-->
+<!--<div ng-show='reddit.busy'>Loading data...</div>-->
+<!--</div>-->
+<!--</div>-->

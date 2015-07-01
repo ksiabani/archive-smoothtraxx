@@ -61,15 +61,21 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
       $scope.queryPage = 1;
       $scope.queryLimit = 20;
       $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
+      console.log($scope.tracks);
     };
 
     $scope.findMore = function () {
+      $scope.busy = true;
+      console.log('busy is ', $scope.busy);
       $scope.queryPage += 1;
-      //$scope.tracks.push.apply = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
-      var some_data = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
-      //$scope.tracks.push.apply(some_data);
-      //$scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
-      $scope.tracks = $scope.tracks.concat(some_data);
+      ////$scope.tracks.push.apply = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
+      ////var some_data = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
+      ////$scope.tracks.push.apply(some_data);
+      $scope.more_tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
+      $scope.tracks.push($scope.tracks, $scope.more_tracks);
+      console.log($scope.more_tracks);
+      $scope.busy = false;
+      console.log('busy is ', $scope.busy);
     };
 
     //Blog.MorePosts.query({id:id}, function(data) {
