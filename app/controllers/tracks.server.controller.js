@@ -4,126 +4,135 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	errorHandler = require('./errors.server.controller'),
-	Track = mongoose.model('Track'),
-	_ = require('lodash')
-	;
+    errorHandler = require('./errors.server.controller'),
+    Track = mongoose.model('Track'),
+    _ = require('lodash')
+    ;
 
 /**
  * Create a Track
  */
-exports.create = function(req, res) {
-	var track = new Track(req.body);
-	track.user = req.user;
+exports.create = function (req, res) {
+    var track = new Track(req.body);
+    track.user = req.user;
 
-	track.save(function(err) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(track);
-		}
-	});
+    track.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(track);
+        }
+    });
 };
 
 /**
  * Show the current Track
  */
-exports.read = function(req, res) {
-	res.jsonp(req.track);
+exports.read = function (req, res) {
+    res.jsonp(req.track);
 };
 
 /**
  * Update a Track
  */
-exports.update = function(req, res) {
-	var track = req.track ;
+exports.update = function (req, res) {
+    var track = req.track;
 
-	track = _.extend(track , req.body);
+    track = _.extend(track, req.body);
 
-	track.save(function(err) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(track);
-		}
-	});
+    track.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(track);
+        }
+    });
 };
 
 /**
  * Delete a Track
  */
-exports.delete = function(req, res) {
-	var track = req.track ;
+exports.delete = function (req, res) {
+    var track = req.track;
 
-	track.remove(function(err) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(track);
-		}
-	});
+    track.remove(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(track);
+        }
+    });
 };
 
 /**
  * List of Tracks
+ * Deprecated: Use paginate
  */
-exports.list = function(req, res) {
-	Track.find().sort('-created').populate('user', 'displayName').limit(20).exec(function(err, tracks) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(tracks);
-		}
-	});
-};
+//exports.list = function(req, res) {
+//	Track.find().sort('-created').populate('user', 'displayName').limit(20).exec(function(err, tracks) {
+//		if (err) {
+//			return res.status(400).send({
+//				message: errorHandler.getErrorMessage(err)
+//			});
+//		} else {
+//			res.jsonp(tracks);
+//		}
+//	});
+//};
 
 /**
  * Track middleware
  */
-exports.trackByID = function(req, res, next, id) { 
-	Track.findById(id).populate('user', 'displayName').exec(function(err, track) {
-		if (err) return next(err);
-		if (! track) return next(new Error('Failed to load Track ' + id));
-		req.track = track ;
-		next();
-	});
+exports.trackByID = function (req, res, next, id) {
+    Track.findById(id).populate('user', 'displayName').exec(function (err, track) {
+        if (err) return next(err);
+        if (!track) return next(new Error('Failed to load Track ' + id));
+        req.track = track;
+        next();
+    });
 };
 
 /**
  * Track authorization middleware
  */
-exports.hasAuthorization = function(req, res, next) {
-	if (req.track.user.id !== req.user.id) {
-		return res.status(403).send('User is not authorized');
-	}
-	next();
+exports.hasAuthorization = function (req, res, next) {
+    if (req.track.user.id !== req.user.id) {
+        return res.status(403).send('User is not authorized');
+    }
+    next();
 };
 
-exports.paginate = function(req, res, next) {
+/**
+ * Pagination middleware
+ * Must rename it, for example to "list" and
+ * create more like listPopular etc
+ */
+exports.paginate = function (req, res) {
+    var queryPage = req.query.page;
+    var queryLimit = req.query.limit;
 
-  var queryPage = req.query.page;
-  var queryLimit = req.query.limit;
-
-  //queryPage = 1;
-  //queryLimit = 8;
-
-  Track.paginate({}, queryPage, queryLimit, function(err, pageCount, tracks, itemCount) {
-	if (err) {
-	  return res.status(400).send({
-		message: errorHandler.getErrorMessage(err)
-	  });
-	} else {
-	  res.jsonp(tracks);
-	}
-  });
-
+    Track.paginate(
+        {}, queryPage, queryLimit, function (err, pageCount, tracks, itemCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                res.jsonp(tracks);
+            }
+        },
+        {
+            //columns: 'title',
+            //populate: [ 'some_ref', 'other_ref' ],
+            sortBy: {
+                released: -1
+            }
+        });
 };
 
