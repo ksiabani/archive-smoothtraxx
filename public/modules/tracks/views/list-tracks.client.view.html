@@ -1,33 +1,32 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
 
-    <!--<div infinite-scroll="myPagingFunction()" infinite-scroll-distance="3"></div>-->
     <div class="container">
         <!-- Page header -->
         <!--<div class="page-header hidden-xs">-->
-        <h4>Discover <a>house<span class="caret"></span></a> music</h4>
+        <h4>Discover <a>great<span class="caret"></span></a> music</h4>
         <!--</div>-->
         <!-- Page header -->
 
         <!--Tabs-->
         <div class="row">
             <div class="col-md-9">
-                <ul class="nav nav-tabs nav-justified">
-                    <li role="presentation" class="active"><a href="#"><i class="fa fa-line-chart"></i> Trending</a>
-                    </li>
-                    <li role="presentation"><a href="#"><i class="fa fa-calendar-o"></i> New</a></li>
-                    <li role="presentation"><a href="#"><i class="fa fa-clock-o"></i> Queue</a></li>
-                    <!--<li role="presentation" class="pull-right"><a href="#">Play all<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></li>-->
-                    <!--<li role="presentation" class="pull-right"><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>-->
-                    <!--<li role="presentation" class="dropdown pull-right">-->
-                    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"-->
-                    <!--aria-expanded="false">-->
-                    <!--Filter <span class="caret"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu">-->
-                    <!--...-->
-                    <!--</ul>-->
-                    <!--</li>-->
-                </ul>
+                <tabset justified="true">
+                    <tab select="loadPop()">
+                        <tab-heading>
+                            <i class="fa fa-line-chart"></i> Trending
+                        </tab-heading>
+                    </tab>
+                    <tab select="loadNew()">
+                        <tab-heading>
+                            <i class="fa fa-calendar-o"></i> Just Added
+                        </tab-heading>
+                    </tab>
+                    <tab select="loadQueue()">
+                        <tab-heading>
+                            <i class="fa fa-clock-o"></i> Queue
+                        </tab-heading>
+                    </tab>
+                </tabset>
             </div>
         </div>
         <!--Tabs-->

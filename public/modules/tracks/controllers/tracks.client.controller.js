@@ -57,20 +57,41 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         //};
 
         // Find a list of Tracks
-        $scope.find = function () {
+        $scope.find = function (tracksCategory) {
             $scope.queryPage = 1;
-            $scope.queryLimit = 20;
-            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit});
+            $scope.queryLimit = 10;
+            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: tracksCategory});
         };
 
-        $scope.findMore = function () {
+        $scope.findMore = function (tracksCategory) {
             $scope.busy = true;
             $scope.queryPage += 1;
-            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit},
+            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: tracksCategory},
                 function (data) {
                     $scope.tracks.push.apply($scope.tracks, data);
                     $scope.busy = false;
                 });
+        };
+
+        $scope.loadPop = function() {
+            var tracksCategory = 'new';
+            $scope.find(tracksCategory);
+            return tracksCategory;
+
+        };
+
+        $scope.loadNew = function() {
+            setTimeout(function() {
+                console.log('You\'ve selected New');
+            });
+
+        };
+
+        $scope.loadQueue = function() {
+            setTimeout(function() {
+                console.log('You\'ve selected Q');
+            });
+
         };
 
         //$scope.moreResultsBoats = function () {
