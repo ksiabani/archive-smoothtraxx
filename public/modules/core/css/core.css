@@ -50,10 +50,10 @@
     /*height: 100%;*/
 /*}*/
 
-.media {
+/*.media {*/
     /*padding-top: 10px;*/
     /*padding-bottom: 5px;*/
-}
+/*}*/
 
 /*.media-body {*/
     /*border-bottom: 1px solid #ddd;*/
@@ -83,14 +83,14 @@
 }
 
 .list-tracks .list-group-item:first-child {
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     border-top: 0 !important;
 }
 
 .list-tracks .list-group-item:last-child {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 /* /List groups */
 
@@ -115,6 +115,7 @@
     margin-right: 0;
     margin-left: 0;
     border: 0;
+    -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
