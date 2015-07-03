@@ -100,7 +100,7 @@ exports.list = function (req, res) {
     var category =  req.query.category;
     var genre = req.query.genre;
 
-    if (category === 'new') {
+    if (!category) {
         Track.paginate(
             {
         //{ name: { $regex: /acme.*corp/i, $nin: [ 'acmeblahcorp' ] } }
