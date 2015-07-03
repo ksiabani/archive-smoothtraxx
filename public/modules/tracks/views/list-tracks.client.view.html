@@ -1,4 +1,5 @@
-<section data-ng-controller="TracksController" data-ng-init="find()">
+<section data-ng-controller="TracksController">
+<!--<section data-ng-controller="TracksController" data-ng-init="find()">-->
 
     <div class="container">
         <!-- Page header -->
@@ -11,22 +12,28 @@
         <div class="row">
             <div class="col-md-9">
                 <tabset justified="true">
-                    <tab select="loadPop()">
-                        <tab-heading>
-                            <i class="fa fa-line-chart"></i> Trending
-                        </tab-heading>
-                    </tab>
-                    <tab select="loadNew()">
-                        <tab-heading>
-                            <i class="fa fa-calendar-o"></i> Just Added
-                        </tab-heading>
-                    </tab>
-                    <tab select="loadQueue()">
-                        <tab-heading>
-                            <i class="fa fa-clock-o"></i> Queue
-                        </tab-heading>
-                    </tab>
-                </tabset>
+                <tab ng-repeat="tab in tabs" active="tab.active" select="find()">
+                    <tab-heading><i class="fa {{tab.icon}}"></i>{{tab.title}}</tab-heading>
+                </tab>
+                    <pre>{{active().tracks_category}}</pre>
+                    <tabset>
+                <!--<tabset justified="true">-->
+                    <!--<tab select="find()">-->
+                        <!--<tab-heading>-->
+                            <!--<i class="fa fa-line-chart"></i> Trending-->
+                        <!--</tab-heading>-->
+                    <!--</tab>-->
+                    <!--<tab select="find()">-->
+                        <!--<tab-heading>-->
+                            <!--<i class="fa fa-calendar-o"></i> Just Added-->
+                        <!--</tab-heading>-->
+                    <!--</tab>-->
+                    <!--<tab select="find('queue')">-->
+                        <!--<tab-heading>-->
+                            <!--<i class="fa fa-clock-o"></i> Queue-->
+                        <!--</tab-heading>-->
+                    <!--</tab>-->
+                <!--</tabset>-->
             </div>
         </div>
         <!--Tabs-->
@@ -34,7 +41,7 @@
 
         <div class="row">
             <div class="col-md-9">
-                <div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
+                <!--<div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">-->
                     <div class="list-group list-tracks">
                         <div class="list-group-item" data-ng-repeat="track in tracks">
                             <div track-card></div>
