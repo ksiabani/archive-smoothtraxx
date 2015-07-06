@@ -1,23 +1,35 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks', '$window',
-    function ($scope, $stateParams, $location, Authentication, Tracks, $window) {
+angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks',
+    function ($scope, $stateParams, $location, Authentication, Tracks) {
+        $scope.authentication = Authentication;
 
-        $scope.tabs = [
-            { title:' Trending', content:'Dynamic content 1', icon: 'fa-line-chart', tracks_category: 'popular'},
-            { title:' Just Added', content:'Dynamic content 2',icon: 'fa-calendar-o',  tracks_category: 'na'},
-            { title:' Queue', content:'Dynamic content 3', icon: 'fa-clock-o', tracks_category: 'queue'},
-            { title:' Unheard', content:'Dynamic content 4', icon: 'fa-headphones', tracks_category: 'unheard'}
+
+        //bootstrap-ui dropdown
+        $scope.items = [
+            'Soulful House',
+            'Deep House',
+            'Afro House',
+            'Tech House',
+            'Jackin House',
+            'House'
         ];
 
-        $scope.active = function() {
-            return $scope.tabs.filter(function(tab){
-                return tab.active;
-            })[0];
+        $scope.status = {
+            isopen: false
         };
 
-        $scope.authentication = Authentication;
+        $scope.toggled = function(open) {
+           // $log.log('Dropdown is now: ', open);
+            console.log($scope.items);
+        };
+
+        $scope.toggleDropdown = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.status.isopen = !$scope.status.isopen;
+        };
 
         // Create new Track
         $scope.create = function () {
@@ -65,50 +77,25 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
             });
         };
 
-        //// Find a list of Tracks
+        //// Find a list of Tracks, deprecated
         //$scope.find = function() {
         //	$scope.tracks = Tracks.query();
         //};
 
         // Find a list of Tracks
-        $scope.find = function () {
-            //var tracksCategory = this.active().tracks_category;
-            console.log(
-                this.tabs.filter(function(tab){
-                    return tab.active
-                })
-            );
-            //var tracksCategory = 'queue';
-            //var tracksGenre = 'Soulful';
-            //$scope.queryPage = 1;
-            //$scope.queryLimit = 10;
-            //$scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: tracksCategory, genre: tracksGenre});
+        $scope.find = function (tracksCategory) {
+            var tracksGenre = 'Soulful House';
+            $scope.tracksCategory = tracksCategory;
+            $scope.queryPage = 1;
+            $scope.queryLimit = 10;
+            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: tracksGenre});
         };
 
-
-        //{
-        //    "results":[
-        //    {
-        //        "id":"460",
-        //        "name":"Widget 1",
-        //        "loc":"Shed"
-        //    },{
-        //        "id":"461",
-        //        "name":"Widget 2",
-        //        "loc":"Kitchen"
-        //    }]
-        //}
-        //
-        //var valuesWith460 = obj.results.filter(function(val) {
-        //    return val.id === "460";
-        //});
-
-
-
-        $scope.findMore = function (tracksCategory, tracksGenre) {
+        $scope.findMore = function () {
+            var tracksGenre = 'Soulful';
             $scope.busy = true;
             $scope.queryPage += 1;
-            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: tracksCategory, genre: tracksGenre},
+            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: tracksGenre},
                 function (data) {
                     $scope.tracks.push.apply($scope.tracks, data);
                     $scope.busy = false;

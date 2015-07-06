@@ -1,39 +1,50 @@
 <section data-ng-controller="TracksController">
-<!--<section data-ng-controller="TracksController" data-ng-init="find()">-->
 
     <div class="container">
-        <!-- Page header -->
-        <!--<div class="page-header hidden-xs">-->
-        <h4>Discover <a>great<span class="caret"></span></a> music</h4>
-        <!--</div>-->
-        <!-- Page header -->
+
+        <h4>Discover
+            <span class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle>
+                  music<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li ng-repeat="choice in items">
+                      <a href>{{choice}}</a>
+                  </li>
+              </ul>
+            </span>
+        </h4>
+
+
+        <!-- Simple dropdown -->
+
+
 
         <!--Tabs-->
         <div class="row">
             <div class="col-md-9">
                 <tabset justified="true">
-                <tab ng-repeat="tab in tabs" active="tab.active" select="find()">
-                    <tab-heading><i class="fa {{tab.icon}}"></i>{{tab.title}}</tab-heading>
-                </tab>
-                    <pre>{{active().tracks_category}}</pre>
-                    <tabset>
-                <!--<tabset justified="true">-->
-                    <!--<tab select="find()">-->
-                        <!--<tab-heading>-->
-                            <!--<i class="fa fa-line-chart"></i> Trending-->
-                        <!--</tab-heading>-->
-                    <!--</tab>-->
-                    <!--<tab select="find()">-->
-                        <!--<tab-heading>-->
-                            <!--<i class="fa fa-calendar-o"></i> Just Added-->
-                        <!--</tab-heading>-->
-                    <!--</tab>-->
-                    <!--<tab select="find('queue')">-->
-                        <!--<tab-heading>-->
-                            <!--<i class="fa fa-clock-o"></i> Queue-->
-                        <!--</tab-heading>-->
-                    <!--</tab>-->
-                <!--</tabset>-->
+                    <tab select="find()">
+                        <tab-heading>
+                            <i class="fa fa-line-chart"></i> Trending
+                        </tab-heading>
+                    </tab>
+                    <tab select="find()">
+                        <tab-heading>
+                            <i class="fa fa-calendar-o"></i> Just Added
+                        </tab-heading>
+                    </tab>
+                    <tab select="find('queue')">
+                        <tab-heading>
+                            <i class="fa fa-clock-o"></i> Queue
+                        </tab-heading>
+                    </tab>
+                    <tab select="find()">
+                        <tab-heading>
+                            <i class="fa fa-headphones"></i> Unheard
+                        </tab-heading>
+                    </tab>
+                </tabset>
             </div>
         </div>
         <!--Tabs-->
@@ -41,7 +52,7 @@
 
         <div class="row">
             <div class="col-md-9">
-                <!--<div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">-->
+                <div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
                     <div class="list-group list-tracks">
                         <div class="list-group-item" data-ng-repeat="track in tracks">
                             <div track-card></div>
