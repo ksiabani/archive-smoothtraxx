@@ -8,9 +8,12 @@
 
         <div class="row">
             <div class="col-md-9">
-                <tabset>
-                    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled"
+                <tabset justified="true">
+                    <tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled"
                          select="tabCategory = tab.category; tabCallback(tabCategory)">
+                        <tab-heading>
+                            <i class="fa fa-{{tab.icon}}"></i> {{tab.title}}
+                        </tab-heading>
                     </tab>
                 </tabset>
             </div>

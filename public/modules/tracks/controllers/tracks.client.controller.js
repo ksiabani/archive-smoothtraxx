@@ -38,10 +38,10 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
     //tabs
         $scope.tabs = [
-            { title:'Trending', category:''},
-            { title:'Just Added', category:''},
-            { title:'Queue', category:'queue'},
-            { title:'Unheard', category:''}
+            { title:'Trending', icon: 'line-chart', category:''},
+            { title:'Just Added', icon: 'calendar-o', category:''},
+            { title:'Queue', icon: 'clock-o', category:'queue'},
+            { title:'Unheard', icon: 'headphones', category:''}
         ];
 
         //$scope.alertMe = function() {
