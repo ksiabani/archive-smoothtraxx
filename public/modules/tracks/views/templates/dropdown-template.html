@@ -1,0 +1,29 @@
+<div class="btn-group" style="vertical-align: top;" dropdown>
+
+    <!-- button style dropdown -->
+    <button ng-if="isButton" type="button"
+            class="btn btn-primary"
+            ng-bind="ngModel.name || default">
+    </button>
+    <button ng-if="isButton" type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+        <span class="caret"></span>
+    </button>
+
+    <!-- no button, plz -->
+    <a ng-if="!isButton" href
+       class="dropdown-toggle"
+       dropdown-toggle
+       ng-bind="ngModel.name || default">
+    </a>
+    <span ng-if="!isButton" class="caret"></span>
+
+    <!-- dropdown items -->
+    <ul class="dropdown-menu" role="menu">
+        <li ng-repeat="item in items">
+            <a href="#"
+               ng-bind="item.name"
+               ng-click="select(item)"></a>
+        </li>
+    </ul>
+
+</div>

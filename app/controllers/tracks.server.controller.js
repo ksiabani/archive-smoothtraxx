@@ -103,7 +103,6 @@ exports.list = function (req, res) {
     if (!category) {
         Track.paginate(
             {
-        //{ name: { $regex: /acme.*corp/i, $nin: [ 'acmeblahcorp' ] } }
                 genre: {
                     $in: [
                         'House',

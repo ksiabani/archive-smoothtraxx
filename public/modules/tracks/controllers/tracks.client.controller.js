@@ -3,33 +3,70 @@
 // Tracks controller
 angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks',
     function ($scope, $stateParams, $location, Authentication, Tracks) {
+
         $scope.authentication = Authentication;
 
+        $scope.tracksGenre = '';
+        $scope.tracksCategory = '';
 
-        //bootstrap-ui dropdown
-        $scope.items = [
-            'Soulful House',
-            'Deep House',
-            'Afro House',
-            'Tech House',
-            'Jackin House',
-            'House'
+
+        //dropdown
+        // items collection
+        $scope.items = [{
+            id: 0,
+            name: 'Soulful House'
+        },{
+            id: 1,
+            name: 'Deep House'
+        },{
+            id: 2,
+            name: 'Afro House'
+        },{
+            id: 3,
+            name: 'all genres'
+        }];
+
+        // current item
+        $scope.item = null; // vm.items[1];
+
+        // directive callback function
+        $scope.ddCallback = function(item) {
+            $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
+            $scope.find();
+        };
+
+
+    //tabs
+        $scope.tabs = [
+            { title:'Trending', category:''},
+            { title:'Just Added', category:''},
+            { title:'Queue', category:'queue'},
+            { title:'Unheard', category:''}
         ];
 
-        $scope.status = {
-            isopen: false
+        //$scope.alertMe = function() {
+        //    setTimeout(function() {
+        //        $window.alert('You\'ve selected the alert tab!');
+        //    });
+        //};
+
+        //$scope.active = function() {
+        //
+        //    console.log($scope.tabs.filter(function(tab){
+        //        return tab.active;
+        //    })[0]);
+        //
+        //
+        //    return $scope.tabs.filter(function(tab){
+        //        return tab.active;
+        //    })[0];
+        //};
+
+        $scope.tabCallback = function(tabCategory) {
+            $scope.tracksCategory = tabCategory;
+            $scope.find();
         };
 
-        $scope.toggled = function(open) {
-           // $log.log('Dropdown is now: ', open);
-            console.log($scope.items);
-        };
-
-        $scope.toggleDropdown = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-            $scope.status.isopen = !$scope.status.isopen;
-        };
 
         // Create new Track
         $scope.create = function () {
@@ -83,19 +120,16 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         //};
 
         // Find a list of Tracks
-        $scope.find = function (tracksCategory) {
-            var tracksGenre = 'Soulful House';
-            $scope.tracksCategory = tracksCategory;
+        $scope.find = function () {
             $scope.queryPage = 1;
             $scope.queryLimit = 10;
-            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: tracksGenre});
+            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: $scope.tracksGenre});
         };
 
         $scope.findMore = function () {
-            var tracksGenre = 'Soulful';
             $scope.busy = true;
             $scope.queryPage += 1;
-            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: tracksGenre},
+            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: $scope.tracksGenre},
                 function (data) {
                     $scope.tracks.push.apply($scope.tracks, data);
                     $scope.busy = false;
