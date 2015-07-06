@@ -1,57 +1,66 @@
-<div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="media">
-            <div class="media-left">
-                <a href="/#!/tracks/55152fc937a239a149385695">
-                    <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <div class="pull-right">
-                    <!--<i class="icon ion-star xxlarge"></i>-->
-                    <!--<i class="icon ion-heart xxlarge">123</i>-->
-                    <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
-                    <!--<i class="icon ion-skip-backward xxlarge"></i>-->
-                    <i class="icon ion-play xxlarge"></i>
-                    <i class="icon ion-skip-forward xxlarge"></i>
+<div data-ng-controller="TracksController" id="player">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="media">
+                <div class="media-left">
+                    <a href="/#!/tracks/55152fc937a239a149385695">
+                        <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
+                    </a>
                 </div>
-                <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
-                <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
-                <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
-                <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
-                <!--</div>-->
-                A very long track title goes here <br/>
-                And the also large artist name here<br/>
+                <div class="media-body">
+                    <div class="pull-right">
+                        <!--<i class="icon ion-star xxlarge"></i>-->
+                        <!--<i class="icon ion-heart xxlarge">123</i>-->
+                        <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
+                        <!--<i class="icon ion-skip-backward xxlarge"></i>-->
+                        <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play'"></i>
+                        <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play'"></i>
+                        <i class="icon ion-skip-forward xxlarge" data-ng-click="API.stop()"></i>
+                    </div>
+                    <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
+                    <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
+                    <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
+                    <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
+                    <!--</div>-->
+                    A very long track title goes here <br/>
+                    And the also large artist name here<br/>
+                </div>
             </div>
         </div>
     </div>
+
+    <videogular vg-player-ready="onPlayerReady($API)">
+        <vg-media vg-src="config.sources" vg-type="audio" vg-auto-play="true">
+        </vg-media>
+    </videogular>
+
 </div>
 
 <!--<div data-ng-controller="PlayerController as controller" id="player">-->
-    <!--<div class="row header" >-->
-        <!--<div class="col-xs-12">-->
-            <!--&lt;!&ndash;<div class="player-controls pull-right">&ndash;&gt;-->
-                <!--&lt;!&ndash;<a href="#"><i class="fa fa-backward fa-2x"></i></a>&ndash;&gt;-->
-                <!--&lt;!&ndash;<a href="#"><i class="fa fa-play fa-2x"></i></a>&ndash;&gt;-->
-                <!--&lt;!&ndash;<a href="#"><i class="fa fa-forward fa-2x"></i></a>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="player-cover pull-left">&ndash;&gt;-->
-                <!--&lt;!&ndash;<a href="#"><img src="modules/core/img/avatar.jpg"></a>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--<div class="meta">-->
-                <!--<div class="page">-->
-                    <!--Dashboard-->
-                <!--</div>-->
-                <!--<div class="breadcrumb-links">-->
-                    <!--Home / Dashboard-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+<!--<div class="row header" >-->
+<!--<div class="col-xs-12">-->
+<!--&lt;!&ndash;<div class="player-controls pull-right">&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#"><i class="fa fa-backward fa-2x"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#"><i class="fa fa-play fa-2x"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#"><i class="fa fa-forward fa-2x"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="player-cover pull-left">&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#"><img src="modules/core/img/avatar.jpg"></a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="meta">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="page">&ndash;&gt;-->
+<!--&lt;!&ndash;Dashboard&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="breadcrumb-links">&ndash;&gt;-->
+<!--&lt;!&ndash;Home / Dashboard&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-    <!--<videogular vg-player-ready="controller.onPlayerReady($API)">-->
-        <!--<vg-media vg-src="controller.config.sources" vg-type="audio">-->
-        <!--</vg-media>-->
-    <!--</videogular>-->
+<!--<videogular vg-player-ready="controller.onPlayerReady($API)">-->
+<!--<vg-media vg-src="controller.config.sources" vg-type="audio">-->
+<!--</vg-media>-->
+<!--</videogular>-->
 
-    <!--</div>-->
+<!--</div>-->
 <!--</div>-->

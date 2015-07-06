@@ -1,66 +1,83 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks',
-    function ($scope, $stateParams, $location, Authentication, Tracks) {
+angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout',
+    function ($scope, $stateParams, $location, Authentication, Tracks, $sce, $timeout) {
 
         $scope.authentication = Authentication;
-
+        $scope.queryLimit = 10;
         $scope.tracksGenre = '';
         $scope.tracksCategory = '';
 
 
-        //dropdown
-        // items collection
-        $scope.items = [{
-            id: 0,
-            name: 'Soulful House'
-        },{
-            id: 1,
-            name: 'Deep House'
-        },{
-            id: 2,
-            name: 'Afro House'
-        },{
-            id: 3,
-            name: 'all genres'
-        }];
+        // Videogular
+        $scope.state = null;
+        $scope.API = null;
+        $scope.currentVideo = 0;
 
-        // current item
-        $scope.item = null; // vm.items[1];
+        $scope.onPlayerReady = function(API) {
+            $scope.API = API;
+        };
 
-        // directive callback function
+        $scope.onCompleteVideo = function() {
+            $scope.isCompleted = true;
+            $scope.currentVideo++;
+            if ($scope.currentVideo >= $scope.videos.length)
+                $scope.currentVideo = 0;
+            $scope.setVideo($scope.currentVideo);
+        };
+
+        $scope.videos = [
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'), type: 'audio/mpeg'}
+                ]
+            },
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'), type: 'audio/mpeg'}
+                ]
+            }
+
+        ];
+
+        $scope.config = {
+            preload: 'none',
+            autoPlay: true,
+            sources: $scope.videos[0].sources
+        };
+
+        $scope.setVideo = function(index) {
+            $scope.API.stop();
+            $scope.currentVideo = index;
+            $scope.config.sources = $scope.videos[index].sources;
+            $timeout($scope.API.play.bind($scope.API), 100);
+        };
+
+
+        // Dropdown
+        $scope.ddItems = [
+            {id: 0, name: 'Soulful House'},
+            {id: 1, name: 'Deep House'},
+            {id: 2, name: 'Afro House'},
+            {id: 3, name: 'all genres'}
+        ];
+
+        $scope.ddItem = null;
+
         $scope.ddCallback = function(item) {
             $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
             $scope.find();
         };
 
 
-    //tabs
+        // Tabs
         $scope.tabs = [
             { title:'Trending', icon: 'line-chart', category:''},
             { title:'Just Added', icon: 'calendar-o', category:''},
             { title:'Queue', icon: 'clock-o', category:'queue'},
             { title:'Unheard', icon: 'headphones', category:''}
         ];
-
-        //$scope.alertMe = function() {
-        //    setTimeout(function() {
-        //        $window.alert('You\'ve selected the alert tab!');
-        //    });
-        //};
-
-        //$scope.active = function() {
-        //
-        //    console.log($scope.tabs.filter(function(tab){
-        //        return tab.active;
-        //    })[0]);
-        //
-        //
-        //    return $scope.tabs.filter(function(tab){
-        //        return tab.active;
-        //    })[0];
-        //};
 
         $scope.tabCallback = function(tabCategory) {
             $scope.tracksCategory = tabCategory;
@@ -114,18 +131,14 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
             });
         };
 
-        //// Find a list of Tracks, deprecated
-        //$scope.find = function() {
-        //	$scope.tracks = Tracks.query();
-        //};
-
         // Find a list of Tracks
         $scope.find = function () {
             $scope.queryPage = 1;
-            $scope.queryLimit = 10;
             $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: $scope.tracksGenre});
         };
 
+        // Used with infinite scrolling
+        // http://stackoverflow.com/questions/20047354/angularjs-push-array-of-data-retrieved-from-a-resource-service-in-another-array
         $scope.findMore = function () {
             $scope.busy = true;
             $scope.queryPage += 1;
@@ -135,16 +148,6 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
                     $scope.busy = false;
                 });
         };
-
-        //$scope.moreResultsBoats = function () {
-        //    $scope.pagIndex = $scope.pagIndex + 1;
-        //    Boat.query({pagIndex: $scope.pagIndex},
-        //        function success(result) {
-        //            console.log('Ejecuting callback. Result:' + result);
-        //            $scope.boats.push.apply($scope.boats, result);
-        //        }
-        //    );
-        //};
 
         // Find existing Track
         $scope.findOne = function () {

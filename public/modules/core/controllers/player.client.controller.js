@@ -14,8 +14,8 @@ angular.module('core').controller('PlayerController',
         controller.onCompleteVideo = function() {
             controller.isCompleted = true;
             controller.currentVideo++;
-            if (controller.currentVideo >= controller.videos.length) controller.currentVideo = 0;
-
+            if (controller.currentVideo >= controller.videos.length)
+                controller.currentVideo = 0;
             controller.setVideo(controller.currentVideo);
         };
 
