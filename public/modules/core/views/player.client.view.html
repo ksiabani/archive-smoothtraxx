@@ -13,6 +13,7 @@
                         <!--<i class="icon ion-heart xxlarge">123</i>-->
                         <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
                         <!--<i class="icon ion-skip-backward xxlarge"></i>-->
+                        <i class="fa fa-spinner fa-spin" data-ng-show="API.isBuffering"></i>
                         <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play'"></i>
                         <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play'"></i>
                         <i class="icon ion-skip-forward xxlarge" data-ng-click="API.stop()"></i>
@@ -35,32 +36,3 @@
     </videogular>
 
 </div>
-
-<!--<div data-ng-controller="PlayerController as controller" id="player">-->
-<!--<div class="row header" >-->
-<!--<div class="col-xs-12">-->
-<!--&lt;!&ndash;<div class="player-controls pull-right">&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#"><i class="fa fa-backward fa-2x"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#"><i class="fa fa-play fa-2x"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#"><i class="fa fa-forward fa-2x"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="player-cover pull-left">&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#"><img src="modules/core/img/avatar.jpg"></a>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="meta">&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="page">&ndash;&gt;-->
-<!--&lt;!&ndash;Dashboard&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="breadcrumb-links">&ndash;&gt;-->
-<!--&lt;!&ndash;Home / Dashboard&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-<!--<videogular vg-player-ready="controller.onPlayerReady($API)">-->
-<!--<vg-media vg-src="controller.config.sources" vg-type="audio">-->
-<!--</vg-media>-->
-<!--</videogular>-->
-
-<!--</div>-->
-<!--</div>-->

@@ -15,11 +15,11 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.API = null;
         $scope.currentVideo = 0;
 
-        $scope.onPlayerReady = function(API) {
+        $scope.onPlayerReady = function (API) {
             $scope.API = API;
         };
 
-        $scope.onCompleteVideo = function() {
+        $scope.onCompleteVideo = function () {
             $scope.isCompleted = true;
             $scope.currentVideo++;
             if ($scope.currentVideo >= $scope.videos.length)
@@ -30,12 +30,18 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.videos = [
             {
                 sources: [
-                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'), type: 'audio/mpeg'}
+                    {
+                        src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'),
+                        type: 'audio/mpeg'
+                    }
                 ]
             },
             {
                 sources: [
-                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'), type: 'audio/mpeg'}
+                    {
+                        src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'),
+                        type: 'audio/mpeg'
+                    }
                 ]
             }
 
@@ -47,7 +53,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
             sources: $scope.videos[0].sources
         };
 
-        $scope.setVideo = function(index) {
+        $scope.setVideo = function (index) {
             $scope.API.stop();
             $scope.currentVideo = index;
             $scope.config.sources = $scope.videos[index].sources;
@@ -56,6 +62,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
 
         // Dropdown
+        // http://stackoverflow.com/questions/28050980/how-can-i-modify-an-angularjs-bootstrap-dropdown-select-so-that-it-does-not-us
         $scope.ddItems = [
             {id: 0, name: 'Soulful House'},
             {id: 1, name: 'Deep House'},
@@ -65,7 +72,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
         $scope.ddItem = null;
 
-        $scope.ddCallback = function(item) {
+        $scope.ddCallback = function (item) {
             $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
             $scope.find();
         };
@@ -73,13 +80,13 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
         // Tabs
         $scope.tabs = [
-            { title:'Trending', icon: 'line-chart', category:''},
-            { title:'Just Added', icon: 'calendar-o', category:''},
-            { title:'Queue', icon: 'clock-o', category:'queue'},
-            { title:'Unheard', icon: 'headphones', category:''}
+            {title: 'Trending', icon: 'line-chart', category: ''},
+            {title: 'Just Added', icon: 'calendar-o', category: ''},
+            {title: 'Queue', icon: 'clock-o', category: 'queue'},
+            {title: 'Unheard', icon: 'headphones', category: ''}
         ];
 
-        $scope.tabCallback = function(tabCategory) {
+        $scope.tabCallback = function (tabCategory) {
             $scope.tracksCategory = tabCategory;
             $scope.find();
         };
@@ -134,15 +141,26 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         // Find a list of Tracks
         $scope.find = function () {
             $scope.queryPage = 1;
-            $scope.tracks = Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: $scope.tracksGenre});
+            $scope.tracks = Tracks.query({
+                    page: $scope.queryPage,
+                    limit: $scope.queryLimit,
+                    category: $scope.tracksCategory,
+                    genre: $scope.tracksGenre
+                });
         };
+
 
         // Used with infinite scrolling
         // http://stackoverflow.com/questions/20047354/angularjs-push-array-of-data-retrieved-from-a-resource-service-in-another-array
         $scope.findMore = function () {
             $scope.busy = true;
             $scope.queryPage += 1;
-            Tracks.query({page: $scope.queryPage, limit: $scope.queryLimit, category: $scope.tracksCategory, genre: $scope.tracksGenre},
+            Tracks.query({
+                    page: $scope.queryPage,
+                    limit: $scope.queryLimit,
+                    category: $scope.tracksCategory,
+                    genre: $scope.tracksGenre
+                },
                 function (data) {
                     $scope.tracks.push.apply($scope.tracks, data);
                     $scope.busy = false;
