@@ -29,7 +29,9 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/videogular/videogular.js',
-				'public/lib/ngInfiniteScroll/build/ng-infinite-scroll.js'
+				'public/lib/ngInfiniteScroll/build/ng-infinite-scroll.js',
+				'public/lib/color-thief/src/color-thief.js',
+				'public/lib/angular-colorthief/angular-colorthief.js'
 			]
 		},
 		css: [

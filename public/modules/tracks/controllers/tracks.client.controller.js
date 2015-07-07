@@ -9,7 +9,6 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.tracksGenre = '';
         $scope.tracksCategory = '';
 
-
         // Videogular
         $scope.state = null;
         $scope.API = null;
@@ -78,19 +77,29 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         };
 
 
-        // Tabs
-        $scope.tabs = [
+        // List tracks tabs
+        $scope.listTabs = [
             {title: 'Trending', icon: 'line-chart', category: ''},
             {title: 'Just Added', icon: 'calendar-o', category: ''},
             {title: 'Queue', icon: 'clock-o', category: 'queue'},
             {title: 'Unheard', icon: 'headphones', category: ''}
         ];
 
-        $scope.tabCallback = function (tabCategory) {
+        $scope.listTabsCallback = function (tabCategory) {
             $scope.tracksCategory = tabCategory;
             $scope.find();
         };
 
+        // View track tabs
+        $scope.viewTabs = [
+            {title: 'More from ', icon: 'user', category: 'artist'},
+            {title: 'More on ', icon: 'user-secret', category: 'label'}
+        ];
+
+        $scope.listTabsCallback = function (tabCategory) {
+            $scope.tracksCategory = tabCategory;
+            $scope.find();
+        };
 
         // Create new Track
         $scope.create = function () {

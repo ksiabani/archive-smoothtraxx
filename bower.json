@@ -17,7 +17,8 @@
     "videogular": "~1.2.4",
     "font-awesome": "~4.3.0",
     "ionicons": "~2.0.1",
-    "ngInfiniteScroll": "~1.2.1"
+    "ngInfiniteScroll": "~1.2.1",
+    "angular-colorthief": "~0.1.0"
   },
   "devDependencies": {}
 }

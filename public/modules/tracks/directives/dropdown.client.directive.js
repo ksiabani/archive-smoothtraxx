@@ -26,7 +26,7 @@ angular.module('tracks').directive('dropdown', [
           }
         };
       },
-      templateUrl: 'modules/tracks/views/templates/dropdown-template.html'
+      templateUrl: 'modules/tracks/views/templates/dropdown.client.view.html'
     };
   }
 ]);
