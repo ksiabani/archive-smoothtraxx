@@ -14,7 +14,7 @@
                         <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
                         <!--<i class="icon ion-skip-backward xxlarge"></i>-->
                         <i class="fa fa-spinner fa-spin" data-ng-show="API.isBuffering"></i>
-                        <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play'"></i>
+                        <i class="icon ion-play xxlarge" data-ng-click="loadPlayer()" data-ng-hide="API.currentState === 'play'"></i>
                         <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play'"></i>
                         <i class="icon ion-skip-forward xxlarge" data-ng-click="API.stop()"></i>
                     </div>
@@ -23,15 +23,16 @@
                     <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
                     <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
                     <!--</div>-->
-                    A very long track title goes here <br/>
-                    And the also large artist name here<br/>
+                    {{track.title}} <br/>
+                    {{track.artist}}<br/>
                 </div>
             </div>
         </div>
     </div>
 
     <videogular vg-player-ready="onPlayerReady($API)">
-        <vg-media vg-src="config.sources" vg-type="audio" vg-auto-play="true">
+        <!--<vg-media vg-src="config.sources" vg-type="audio" vg-auto-play="true">-->
+        <vg-media vg-src="" vg-type="audio" vg-auto-play="true">
         </vg-media>
     </videogular>
 

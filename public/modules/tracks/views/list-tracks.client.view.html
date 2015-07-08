@@ -1,10 +1,12 @@
 <section data-ng-controller="TracksController">
-
     <div class="container">
-
-        <h4>Discover
-            <dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>
-        </h4>
+        <div class="col-md-9">
+            <h4>Discover
+                <dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>
+                <i class="fa fa-th pull-right"></i>
+                <i class="fa fa-th-list pull-right"></i>
+            </h4>
+        </div>
 
         <div class="row">
             <div class="col-md-9">

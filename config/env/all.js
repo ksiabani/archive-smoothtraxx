@@ -31,7 +31,8 @@ module.exports = {
 				'public/lib/videogular/videogular.js',
 				'public/lib/ngInfiniteScroll/build/ng-infinite-scroll.js',
 				'public/lib/color-thief/src/color-thief.js',
-				'public/lib/angular-colorthief/angular-colorthief.js'
+				'public/lib/angular-colorthief/angular-colorthief.js',
+				'public/lib/angular-deckgrid/angular-deckgrid.js'
 			]
 		},
 		css: [

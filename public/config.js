@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function () {
   // Init module configuration options
   var applicationModuleName = 'groovity-library';
-  var applicationModuleVendorDependencies = ['ngResource', 'ngCookies', 'ngAnimate', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'ui.utils', 'com.2fdevs.videogular', 'infinite-scroll', 'ngColorThief'];
+  var applicationModuleVendorDependencies = ['ngResource', 'ngCookies', 'ngAnimate', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'ui.utils', 'com.2fdevs.videogular', 'infinite-scroll', 'ngColorThief', 'akoenig.deckgrid'];
 
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {

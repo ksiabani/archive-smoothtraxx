@@ -9,6 +9,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.tracksGenre = '';
         $scope.tracksCategory = '';
 
+
         // Videogular
         $scope.state = null;
         $scope.API = null;
@@ -25,6 +26,15 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
                 $scope.currentVideo = 0;
             $scope.setVideo($scope.currentVideo);
         };
+
+        //$scope.loadPlayer = function() {
+        //    $scope.videos = Tracks.query({
+        //        page: $scope.queryPage,
+        //        limit: $scope.queryLimit,
+        //        category: $scope.tracksCategory,
+        //        genre: $scope.tracksGenre
+        //    });
+        //};
 
         $scope.videos = [
             {
@@ -157,7 +167,6 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
                     genre: $scope.tracksGenre
                 });
         };
-
 
         // Used with infinite scrolling
         // http://stackoverflow.com/questions/20047354/angularjs-push-array-of-data-retrieved-from-a-resource-service-in-another-array
