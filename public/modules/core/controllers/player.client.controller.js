@@ -1,51 +1,132 @@
 'use strict';
 
 angular.module('core').controller('PlayerController',
-    ['$sce', '$timeout', function ($sce, $timeout) {
-        var controller = this;
-        controller.state = null;
-        controller.API = null;
-        controller.currentVideo = 0;
+    ['$scope', '$sce', '$timeout', 'Player', function ($scope, $sce, $timeout, Player) {
+      //var controller = this;
+      $scope.state = null;
+      $scope.API = null;
+      $scope.currentVideo = 0;
 
-        controller.onPlayerReady = function(API) {
-            controller.API = API;
-        };
+      $scope.onPlayerReady = function (API) {
+        $scope.API = API;
+      };
 
-        controller.onCompleteVideo = function() {
-            controller.isCompleted = true;
-            controller.currentVideo++;
-            if (controller.currentVideo >= controller.videos.length)
-                controller.currentVideo = 0;
-            controller.setVideo(controller.currentVideo);
-        };
+      $scope.onCompleteVideo = function () {
+        $scope.isCompleted = true;
+        $scope.currentVideo++;
+        if ($scope.currentVideo >= $scope.videos.length)
+          $scope.currentVideo = 0;
+        $scope.setVideo($scope.currentVideo);
+      };
 
-        controller.videos = [
+      $scope.play = function() {
+        $scope.tracks
+      }
+
+      //$scope.find = function () {
+      //  $scope.queryPage = 1;
+      //  $scope.tracks = Tracks.query({
+      //    page: $scope.queryPage,
+      //    limit: $scope.queryLimit,
+      //    category: $scope.tracksCategory,
+      //    genre: $scope.tracksGenre
+      //  });
+      //};
+
+      $scope.videos = [
+        {
+          sources: [
             {
-                sources: [
-                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'), type: 'audio/mpeg'}
-                ]
-            },
-            {
-                sources: [
-                    {src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'), type: 'audio/mpeg'}
-                ]
+              src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'),
+              type: 'audio/mpeg'
             }
+          ]
+        },
+        {
+          sources: [
+            {
+              src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'),
+              type: 'audio/mpeg'
+            }
+          ]
+        }
 
-        ];
+      ];
 
-        controller.config = {
-            preload: 'none',
-            autoPlay: true,
-            sources: controller.videos[0].sources
-        };
+      $scope.config = {
+        preload: 'none',
+        autoPlay: true,
+        sources: $scope.videos[0].sources
+      };
 
-        controller.setVideo = function(index) {
-            controller.API.stop();
-            controller.currentVideo = index;
-            controller.config.sources = controller.videos[index].sources;
-            $timeout(controller.API.play.bind(controller.API), 100);
-        };
+      $scope.setVideo = function (index) {
+        $scope.API.stop();
+        $scope.currentVideo = index;
+        $scope.config.sources = $scope.videos[index].sources;
+        $timeout($scope.API.play.bind($scope.API), 100);
+      };
 
     }]
 );
+
+// Videogular
+//$scope.state = null;
+//$scope.API = null;
+//$scope.currentVideo = 0;
+//
+//$scope.onPlayerReady = function (API) {
+//    $scope.API = API;
+//};
+//
+//$scope.onCompleteVideo = function () {
+//    $scope.isCompleted = true;
+//    $scope.currentVideo++;
+//    if ($scope.currentVideo >= $scope.videos.length)
+//        $scope.currentVideo = 0;
+//    $scope.setVideo($scope.currentVideo);
+//};
+//
+////$scope.loadPlayer = function() {
+////    $scope.videos = Tracks.query({
+////        page: $scope.queryPage,
+////        limit: $scope.queryLimit,
+////        category: $scope.tracksCategory,
+////        genre: $scope.tracksGenre
+////    });
+////};
+//
+//$scope.videos = [
+//    {
+//        sources: [
+//            {
+//                src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'),
+//                type: 'audio/mpeg'
+//            }
+//        ]
+//    },
+//    {
+//        sources: [
+//            {
+//                src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'),
+//                type: 'audio/mpeg'
+//            }
+//        ]
+//    }
+//
+//];
+//
+//$scope.config = {
+//    preload: 'none',
+//    autoPlay: true,
+//    sources: $scope.videos[0].sources
+//};
+//
+//$scope.setVideo = function (index) {
+//    $scope.API.stop();
+//    $scope.currentVideo = index;
+//    $scope.config.sources = $scope.videos[index].sources;
+//    $timeout($scope.API.play.bind($scope.API), 100);
+//};
+
+
 

@@ -1,39 +1,42 @@
-<div data-ng-controller="TracksController" id="player">
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <div class="media">
-                <div class="media-left">
-                    <a href="/#!/tracks/55152fc937a239a149385695">
-                        <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <div class="pull-right">
-                        <!--<i class="icon ion-star xxlarge"></i>-->
-                        <!--<i class="icon ion-heart xxlarge">123</i>-->
-                        <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
-                        <!--<i class="icon ion-skip-backward xxlarge"></i>-->
-                        <i class="fa fa-spinner fa-spin" data-ng-show="API.isBuffering"></i>
-                        <i class="icon ion-play xxlarge" data-ng-click="loadPlayer()" data-ng-hide="API.currentState === 'play'"></i>
-                        <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play'"></i>
-                        <i class="icon ion-skip-forward xxlarge" data-ng-click="API.stop()"></i>
+<section data-ng-controller="PlayerController" data-ng-init="play()">
+    <div id="player">
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="/#!/tracks/55152fc937a239a149385695">
+                            <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
+                        </a>
                     </div>
-                    <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
-                    <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
-                    <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
-                    <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
-                    <!--</div>-->
-                    {{track.title}} <br/>
-                    {{track.artist}}<br/>
+                    <div class="media-body">
+                        <div class="pull-right">
+                            <!--<i class="icon ion-star xxlarge"></i>-->
+                            <!--<i class="icon ion-heart xxlarge">123</i>-->
+                            <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
+                            <!--<i class="icon ion-skip-backward xxlarge"></i>-->
+                            <i class="fa fa-spinner fa-spin xxlarge" data-ng-show="API.isBuffering"></i>
+                            <i class="icon ion-play xxlarge" data-ng-click="loadPlayer()"
+                               data-ng-hide="API.currentState === 'play'"></i>
+                            <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()"
+                               data-ng-show="API.currentState === 'play'"></i>
+                            <i class="icon ion-skip-forward xxlarge" data-ng-click="API.stop()"></i>
+                        </div>
+                        <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
+                        <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
+                        <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
+                        <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
+                        <!--</div>-->
+                        {{track.title}} <br/>
+                        {{track.artist}}<br/>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <videogular vg-player-ready="onPlayerReady($API)">
+            <vg-media vg-src="config.sources" vg-type="audio" vg-auto-play="true">
+            </vg-media>
+        </videogular>
+
     </div>
-
-    <videogular vg-player-ready="onPlayerReady($API)">
-        <!--<vg-media vg-src="config.sources" vg-type="audio" vg-auto-play="true">-->
-        <vg-media vg-src="" vg-type="audio" vg-auto-play="true">
-        </vg-media>
-    </videogular>
-
-</div>
+</section>
