@@ -20,8 +20,8 @@ angular.module('core').controller('PlayerController',
       };
 
       $scope.play = function() {
-        $scope.tracks
-      }
+
+      };
 
       //$scope.find = function () {
       //  $scope.queryPage = 1;

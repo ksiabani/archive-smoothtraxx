@@ -2,13 +2,24 @@
 
 //Tracks service used to communicate Tracks REST endpoints
 angular.module('core').factory('Player', ['$resource',
-  function($resource) {
-    return $resource('tracks/:trackId', { trackId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    });
+  function ($resource) {
+    //return $resource('tracks/:trackId', { trackId: '@_id'
+    //}, {
+    //  update: {
+    //    method: 'PUT'
+    //  }
+    //});
+    return {
+      similar: $resource('/tracks/:trackId/similar', {}, {
+        query: {method: 'GET', params: {}, isArray: false}
+      }),
+      popular: $resource('/tracks/:trackId/popular', {}, {
+        query: {method: 'GET', params: {}, isArray: false}
+      }),
+      latest: $resource('/tracks/:trackId/latest', {}, {
+      query: {method: 'GET', params: {}, isArray: false}
+    })
+    };
   }
 ]);
 
