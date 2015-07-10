@@ -217,19 +217,6 @@ exports.list = function (req, res) {
 //
 //};
 
-
-exports.playerSimilar = function() {
-
-};
-
-exports.playerPopular = function() {
-
-};
-
-exports.playerLatest = function() {
-
-};
-
 /**
  * Track middleware
  */
