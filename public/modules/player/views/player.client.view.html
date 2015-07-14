@@ -1,4 +1,4 @@
-<section data-ng-controller="PlayerController" data-ng-init="play()">
+<section data-ng-controller="PlayerController" data-ng-init="" data-ng-show="showPlayer.show">
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="media">
@@ -25,8 +25,8 @@
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
                         <!--</div>-->
-                        <!--{{videos}} <br/>-->
-                        {{track.artist}}<br/>
+                        {{videos[0].title}}<br/>
+                        {{videos[0].artist}}<br/>
                     </div>
                 </div>
             </div>

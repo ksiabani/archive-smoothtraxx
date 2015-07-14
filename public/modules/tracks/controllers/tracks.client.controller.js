@@ -1,13 +1,22 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout',
-    function ($scope, $stateParams, $location, Authentication, Tracks, $sce, $timeout) {
+angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared',
+    function ($scope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
         $scope.tracksGenre = '';
         $scope.tracksCategory = '';
+
+        //$scope.showPlayer = Shared.getShowPlayer();
+        //console.log('Tracks says', $scope.showPlayer.show);
+
+        $scope.play = function (artist, genre) {
+            $scope.showPlayer = Shared.setShowPlayer();
+            var type = $scope.tracksCategory;
+            console.log(type, artist, genre);
+        };
 
         // Dropdown
         // http://stackoverflow.com/questions/28050980/how-can-i-modify-an-angularjs-bootstrap-dropdown-select-so-that-it-does-not-us

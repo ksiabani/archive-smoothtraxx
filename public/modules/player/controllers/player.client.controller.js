@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('core').controller('PlayerController',
-    ['$scope', '$sce', '$timeout', 'Player', function ($scope, $sce, $timeout, Player) {
+    ['$scope', '$sce', '$timeout','Tracks', 'Shared', function ($scope, $sce, $timeout, Tracks, Shared) {
+
+      $scope.showPlayer = Shared.getShowPlayer();
+      //console.log('Player says', $scope.showPlayer.show);
+
       //var controller = this;
       $scope.state = null;
       $scope.API = null;
@@ -20,47 +24,20 @@ angular.module('core').controller('PlayerController',
       };
 
       $scope.play = function() {
-
-
-        console.log(Player.query());
-
-
-
-        //Player.query().$promise.then(function (data) {
-        //  var log = [];
-        //  angular.forEach(data, function(value) {
-        //    console.log(value);
-        //    this.push(value);
-        //  }, log);
-        //  //console.log(log);
-        //});
+        //$scope.showPlayer = true;
+        Shared.togglePlayer();
+        Tracks.query().$promise.then(function(tracks){
+          //console.log(data[0].source);
+          $scope.videos = tracks.map(function (track) {
+            var obj = {};
+            obj.url = 'https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + track.filename_128;
+            obj.artist = track.artist;
+            obj.title = track.title;
+            return obj;
+          });
+        });
       };
 
-
-      //var User = $resource('/user/:userId', {userId:'@id'});
-      //User.get({userId:123})
-      //    .$promise.then(function(user) {
-      //      $scope.user = user;
-      //    });
-
-      //app.controller('MyCtrl', function($scope, JsonResource) {
-      //  // No direct assignment here, resolve first, then assign
-      //  JsonResource.query().$promise.then(function(data) {
-      //    $scope.events = data;
-      //  });
-      //});
-
-
-
-      //TestAPI.query({}, function (value, responseHeaders) {
-      //  console.log(responseHeaders());
-      //}, function (response) {
-      //  console.log(response);
-      //});
-
-      //$scope.find = function() {
-      //  $scope.articles = Articles.query();
-      //};
 
 
       //$scope.videos = [
@@ -94,13 +71,11 @@ angular.module('core').controller('PlayerController',
       //  }
       //]
 
-
-
-      //$scope.config = {
-      //  preload: 'none',
-      //  autoPlay: true,
-      //  sources: $scope.videos[0].sources
-      //};
+      $scope.config = {
+        preload: 'none',
+        autoPlay: true,
+        //sources: $scope.videos[0].url
+      };
 
       $scope.setVideo = function (index) {
         $scope.API.stop();
