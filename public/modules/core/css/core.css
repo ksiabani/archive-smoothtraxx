@@ -105,7 +105,7 @@
     }
 
     .navbar {
-        margin-bottom: 0;
+        /*margin-bottom: 0;*/ /*heading does not look good on mobile with this*/
     }
 }
 @media(min-width:768px) {
