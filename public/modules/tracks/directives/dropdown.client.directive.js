@@ -15,7 +15,7 @@ angular.module('tracks').directive('dropdown', [
           event.preventDefault();
         });
 
-        scope.default = 'music';
+        scope.default = 'Choose genre';
         scope.isButton = 'isButton' in attrs;
 
         // selection changed handler

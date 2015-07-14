@@ -8,13 +8,13 @@
                  color-thief-palette-count="2">
 
             <div class="media">
-                <div class="media-left">
-                    <i class="fa fa-spinner fa-spin" data-ng-show="API.isBuffering"></i>
-                    <i class="icon ion-play xxlarge" data-ng-click="API.playPause()"
-                       data-ng-hide="API.currentState === 'play'"></i>
-                    <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()"
-                       data-ng-show="API.currentState === 'play'"></i>
-                </div>
+                <!--<div class="media-left">-->
+                    <!--<i class="fa fa-spinner fa-spin" data-ng-show="API.isBuffering"></i>-->
+                    <!--<i class="icon ion-play xxlarge" data-ng-click="API.playPause()"-->
+                       <!--data-ng-hide="API.currentState === 'play'"></i>-->
+                    <!--<i class="icon ion-pause xxlarge" data-ng-click="API.playPause()"-->
+                       <!--data-ng-show="API.currentState === 'play'"></i>-->
+                <!--</div>-->
                 <div class="media-body">
                     <strong>{{track.title}}</strong> <br/>
                     {{track.artist}}<br/>
@@ -23,6 +23,10 @@
             </div>
 
             <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-play fa-1x"></i> Play
+                    </button>
+                </div>
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i>
                     </button>

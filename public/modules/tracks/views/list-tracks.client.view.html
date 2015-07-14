@@ -1,8 +1,19 @@
 <section data-ng-controller="TracksController">
     <div class="container">
-            <h4>Discover
-                <dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>
-            </h4>
+        <!--<h4>Discover-->
+            <!--<dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
+        <!--</h4>-->
+
+        <div class="row">
+            <div class="col-md-9">
+                <!--<p>-->
+                <h4><i class="fa fa-line-chart"></i> Trending <span class="caret"></span>
+                <dropdown class="pull-right" ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>
+                </h4>
+                <!--</p>-->
+            </div>
+
+        </div>
 
         <div class="row">
             <div class="col-md-9">

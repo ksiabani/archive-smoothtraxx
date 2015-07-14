@@ -15,7 +15,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
             {id: 0, name: 'Soulful House'},
             {id: 1, name: 'Deep House'},
             {id: 2, name: 'Afro House'},
-            {id: 3, name: 'all genres'}
+            {id: 3, name: 'All genres'}
         ];
 
         $scope.ddItem = null;
