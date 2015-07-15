@@ -95,8 +95,10 @@ exports.delete = function (req, res) {
  *                                                                          have a suggestion for change (or change request)
  */
 exports.list = function (req, res) {
-    var queryPage = req.query.page;
-    var queryLimit = req.query.limit;
+    //var queryPage = req.query.page;
+    var queryPage = 1;
+    //var queryLimit = req.query.limit;
+    var queryLimit = 10;
     var category =  req.query.category;
     var genre = req.query.genre;
 
