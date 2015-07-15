@@ -24,57 +24,34 @@ angular.module('core').controller('PlayerController',
       };
 
       $scope.play = function() {
-        //$scope.showPlayer = true;
-        Shared.togglePlayer();
         Tracks.query().$promise.then(function(tracks){
           //console.log(data[0].source);
-          $scope.videos = tracks.map(function (track) {
+          $scope.videotracks = tracks.map(function (track) {
             var obj = {};
             obj.url = 'https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + track.filename_128;
             obj.artist = track.artist;
             obj.title = track.title;
             return obj;
           });
+          console.log($scope.videotracks[0].url);
+
+          $scope.videos = [
+            {sources: [{src: 'https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/3d61a59a2b90876f593dca56fb62149f.mp3', type: 'audio/mpeg'}]},
+            {sources: [{src: $sce.trustAsResourceUrl($scope.videotracks[1].url), type: 'audio/mpeg'}]}
+          ];
+          console.log($scope.videos[0].sources);
+
+          $scope.API.changeSource($scope.videos[0].sources);
+
+          $scope.config = {
+            preload: 'none',
+            autoPlay: false
+            //sources: ''
+            //sources: $scope.videos[0].sources
+            //sources: [{src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/3d61a59a2b90876f593dca56fb62149f.mp3'), type: 'audio/mpeg'}]
+          };
+
         });
-      };
-
-
-
-      //$scope.videos = [
-      //  {
-      //    sources: [
-      //      {
-      //        src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/011e98c858d622c23c50141c4ad644ae.mp3'),
-      //        type: 'audio/mpeg'
-      //      }
-      //    ]
-      //  },
-      //  {
-      //    sources: [
-      //      {
-      //        src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/019c2ba9136e6091626b611b3608347b.mp3'),
-      //        type: 'audio/mpeg'
-      //      }
-      //    ]
-      //  }
-      //
-      //];
-
-      //[
-      //  {
-      //    "sources":[
-      //      {
-      //        "src":"$sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/3d61a59a2b90876f593dca56fb62149f.mp3')",
-      //        "type":"audio/mpeg"
-      //      }
-      //    ]
-      //  }
-      //]
-
-      $scope.config = {
-        preload: 'none',
-        autoPlay: true,
-        //sources: $scope.videos[0].url
       };
 
       $scope.setVideo = function (index) {
@@ -86,6 +63,7 @@ angular.module('core').controller('PlayerController',
 
     }]
 );
+
 
 // Videogular
 //$scope.state = null;

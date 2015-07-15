@@ -1,4 +1,4 @@
-<section data-ng-controller="PlayerController" data-ng-init="" data-ng-show="showPlayer.show">
+<section data-ng-controller="PlayerController" data-ng-init="play()" data-ng-show="showPlayer.show">
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="media">
@@ -14,7 +14,7 @@
                             <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
                             <!--<i class="icon ion-skip-backward xxlarge"></i>-->
                             <i class="fa fa-spinner fa-spin xxlarge" data-ng-show="API.isBuffering"></i>
-                            <i class="icon ion-play xxlarge" data-ng-click="loadPlayer()"
+                            <i class="icon ion-play xxlarge" data-ng-click="setVideo(0)"
                                data-ng-hide="API.currentState === 'play'"></i>
                             <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()"
                                data-ng-show="API.currentState === 'play'"></i>
@@ -25,16 +25,16 @@
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
                         <!--</div>-->
-                        {{videos[0].title}}<br/>
-                        {{videos[0].artist}}<br/>
+                        {{config.sources}}<br/>
+                        {{videotracks[0].artist}}<br/>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--<videogular vg-player-ready="onPlayerReady($API)">-->
-            <!--<vg-media vg-src="{{videos}}" vg-type="audio">-->
-
-            <!--</vg-media>-->
-        <!--</videogular>-->
+        <videogular vg-player-ready="onPlayerReady($API)">
+            <vg-media vg-src="PlayerController.config.sources" vg-type="audio">
+            <!--<vg-media vg-type="audio">-->
+            </vg-media>
+        </videogular>
 </section>
