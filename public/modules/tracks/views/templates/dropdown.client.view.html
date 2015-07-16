@@ -1,4 +1,4 @@
-<div class="btn-group" style="vertical-align: top;" dropdown>
+<div class="btn-group" dropdown>
 
     <!-- button style dropdown -->
     <button ng-if="isButton" type="button"
@@ -10,11 +10,8 @@
     </button>
 
     <!-- no button, plz -->
-    <a ng-if="!isButton" href
-       class="dropdown-toggle"
-       dropdown-toggle
-       ng-bind="ngModel.name || default">
-    </a>
+
+    <a ng-if="!isButton" href class="dropdown-toggle" dropdown-toggle ng-bind="ngModel.name || default"></a>
     <span ng-if="!isButton" class="caret"></span>
 
     <!-- dropdown items -->
@@ -27,3 +24,14 @@
     </ul>
 
 </div>
+
+<!--<li class="dropdown">-->
+<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose genre <span class="caret"></span></a>-->
+<!--<ul class="dropdown-menu">-->
+<!--<li><a href="#">Action</a></li>-->
+<!--<li><a href="#">Another action</a></li>-->
+<!--<li><a href="#">Something else here</a></li>-->
+<!--<li role="separator" class="divider"></li>-->
+<!--<li><a href="#">Separated link</a></li>-->
+<!--</ul>-->
+<!--</li>-->

@@ -1,34 +1,32 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
     <div class="container">
         <!--<h4>Discover-->
-            <!--<dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
+        <!--<dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
         <!--</h4>-->
 
         <!--<div class="row">-->
-            <!--<div class="col-md-9">-->
-                <!--&lt;!&ndash;<p>&ndash;&gt;-->
-                <!--<h4><i class="fa fa-line-chart"></i> Trending <span class="caret"></span>-->
-                <!--<dropdown class="pull-right" ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
-                <!--</h4>-->
-                <!--&lt;!&ndash;</p>&ndash;&gt;-->
-            <!--</div>-->
+        <!--<div class="col-md-9">-->
+        <!--&lt;!&ndash;<p>&ndash;&gt;-->
+        <!--<h4><i class="fa fa-line-chart"></i> Trending <span class="caret"></span>-->
+        <!--<dropdown class="pull-right" ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
+        <!--</h4>-->
+        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+        <!--</div>-->
 
         <!--</div>-->
 
         <!--<div class="row">-->
-            <!--<div class="col-md-9">-->
-                <!--<tabset justified="true">-->
-                    <!--<tab ng-repeat="tab in listTabs" active="tab.active" disable="tab.disabled"-->
-                         <!--select="tabCategory = tab.category; listTabsCallback(tabCategory)">-->
-                        <!--<tab-heading>-->
-                            <!--<i class="fa fa-{{tab.icon}}"></i> {{tab.title}}-->
-                        <!--</tab-heading>-->
-                    <!--</tab>-->
-                <!--</tabset>-->
-            <!--</div>-->
+        <!--<div class="col-md-9">-->
+        <!--<tabset justified="true">-->
+        <!--<tab ng-repeat="tab in listTabs" active="tab.active" disable="tab.disabled"-->
+        <!--select="tabCategory = tab.category; listTabsCallback(tabCategory)">-->
+        <!--<tab-heading>-->
+        <!--<i class="fa fa-{{tab.icon}}"></i> {{tab.title}}-->
+        <!--</tab-heading>-->
+        <!--</tab>-->
+        <!--</tabset>-->
         <!--</div>-->
-
-
+        <!--</div>-->
 
 
         <div class="row">
@@ -38,58 +36,54 @@
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <!--<span class="glyphicon glyphicon-play"> Trending</span>-->
-                                <i class="fa fa-line-chart"> Trending</i>
-                                <!--<span class="sr-only">Toggle navigation</span>-->
-                                <!--<span class="icon-bar"></span>-->
-                                <!--<span class="icon-bar"></span>-->
-                                <!--<span class="icon-bar"></span>-->
+                            <button type="button" class="navbar-toggle collapsed" aria-expanded="false"
+                                    ng-init="isCollapsedCategory = true"
+                                    ng-click="isCollapsedCategory = !isCollapsedCategory">
+                                <i class="fa fa-line-chart"> Trending {{tracksCategory}}</i>
                             </button>
                         </div>
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose genre <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
+                        <!--Angular UI collapse directive-->
+                        <!--<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>-->
+                        <!--<div collapse="isCollapsed">-->
+                        <!--<div class="well well-lg">Some content</div>-->
+                        <!--</div>-->
+
+                        <!--Angular UI dropdown directive-->
+                        <div class="btn btn-group navbar-right" dropdown dropdown-append-to-body>
+                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                                Choose Genre <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-10">
-
-                            <!--<ul class="nav nav-pills">-->
-                                <!--<li role="presentation" class="active"><a href="#">Home</a></li>-->
-                                <!--<li role="presentation"><a href="#">Profile</a></li>-->
-                                <!--<li role="presentation"><a href="#">Messages</a></li>-->
-                            <!--</ul>-->
-
+                        <!--<div id="header" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">-->
+                        <div class="collapse navbar-collapse" collapse="isCollapsedCategory"
+                             ng-click="isCollapsedCategory=true">
                             <ul class="nav navbar-nav">
-                                <li class="custom-navbar-btn"><a href="#"><i class="fa fa-line-chart"> Trending</i> <span class="sr-only">(current)</span></a></li>
-                                <li class="custom-navbar-btn"><a href="#"><i class="fa fa-calendar-o"> Just Added</i></a></li>
-                                <li class="custom-navbar-btn"><a href="#"><i class="fa fa-clock-o"> Queue</i></a></li>
-                                <li class="custom-navbar-btn"><a href="#"><i class="fa fa-headphones"> Unheard</i></a></li>
-                                <!--<li class="dropdown">-->
-                                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
-                                    <!--<ul class="dropdown-menu">-->
-                                        <!--<li><a href="#">Action</a></li>-->
-                                        <!--<li><a href="#">Another action</a></li>-->
-                                        <!--<li><a href="#">Something else here</a></li>-->
-                                        <!--<li role="separator" class="divider"></li>-->
-                                        <!--<li><a href="#">Separated link</a></li>-->
-                                        <!--<li role="separator" class="divider"></li>-->
-                                        <!--<li><a href="#">One more separated link</a></li>-->
-                                    <!--</ul>-->
-                                <!--</li>-->
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksCategory()"><i
+                                        class="fa fa-line-chart"> Trending</i> <span
+                                        class="sr-only">(current)</span></a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksCategory()"><i
+                                        class="fa fa-calendar-o"> Just Added</i></a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksCategory('queue')"><i
+                                        class="fa fa-clock-o"> Queue</i></a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksCategory()"><i
+                                        class="fa fa-headphones"> Unheard</i></a></li>
                             </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
                 </nav>
 
 
@@ -97,22 +91,18 @@
         </div>
 
 
-
-
-
-
         <div class="row">
             <div class="col-md-9">
                 <!--<div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">-->
-                    <div class="list-group list-tracks">
-                        <div class="list-group-item" data-ng-repeat="track in tracks">
-                            <div track-card></div>
-                        </div>
+                <div class="list-group list-tracks">
+                    <div class="list-group-item" data-ng-repeat="track in tracks">
+                        <div track-card></div>
                     </div>
-                    <div ng-show="busy"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
-                    <!--<button class="btn btn-default btn-block" ng-click="findMore()">More...</button>-->
                 </div>
+                <div ng-show="busy"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
+                <!--<button class="btn btn-default btn-block" ng-click="findMore()">More...</button>-->
             </div>
         </div>
+    </div>
     </div>
 </section>

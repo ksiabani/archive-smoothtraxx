@@ -8,6 +8,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.queryLimit = 10;
         $scope.tracksGenre = 'Soulful House';
         $scope.tracksCategory = 'queue';
+        //$scope.isCollapsedCategory = true;
 
         //$scope.showPlayer = Shared.getShowPlayer();
         //console.log('Tracks says', $scope.showPlayer.show);
@@ -15,6 +16,12 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.play = function (artist, genre) {
             Shared.setShowPlayer();
             Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre);
+        };
+
+        //load tracks category
+        $scope.loadTracksCategory = function (category) {
+            $scope.tracksCategory = category;
+            $scope.find();
         };
 
         // Dropdown
@@ -27,36 +34,34 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         ];
 
         $scope.ddItem = null;
-
         $scope.ddCallback = function (item) {
             $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
             $scope.find();
         };
 
-
-        // List tracks tabs
-        $scope.listTabs = [
-            {title: 'Trending', icon: 'line-chart', category: ''},
-            {title: 'Just Added', icon: 'calendar-o', category: ''},
-            {title: 'Queue', icon: 'clock-o', category: 'queue'},
-            {title: 'Unheard', icon: 'headphones', category: ''}
-        ];
-
-        $scope.listTabsCallback = function (tabCategory) {
-            $scope.tracksCategory = tabCategory;
-            $scope.find();
-        };
-
-        // View track tabs
-        $scope.viewTabs = [
-            {title: 'More from ', icon: 'user', category: 'artist'},
-            {title: 'More on ', icon: 'user-secret', category: 'label'}
-        ];
-
-        $scope.listTabsCallback = function (tabCategory) {
-            $scope.tracksCategory = tabCategory;
-            $scope.find();
-        };
+        //// Tabs
+        //$scope.listTabs = [
+        //    {title: 'Trending', icon: 'line-chart', category: ''},
+        //    {title: 'Just Added', icon: 'calendar-o', category: ''},
+        //    {title: 'Queue', icon: 'clock-o', category: 'queue'},
+        //    {title: 'Unheard', icon: 'headphones', category: ''}
+        //];
+        //
+        //$scope.listTabsCallback = function (tabCategory) {
+        //    $scope.tracksCategory = tabCategory;
+        //    $scope.find();
+        //};
+        //
+        //// View track tabs
+        //$scope.viewTabs = [
+        //    {title: 'More from ', icon: 'user', category: 'artist'},
+        //    {title: 'More on ', icon: 'user-secret', category: 'label'}
+        //];
+        //
+        //$scope.listTabsCallback = function (tabCategory) {
+        //    $scope.tracksCategory = tabCategory;
+        //    $scope.find();
+        //};
 
         // Create new Track
         $scope.create = function () {
