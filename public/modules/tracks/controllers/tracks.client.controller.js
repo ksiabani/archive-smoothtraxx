@@ -6,12 +6,13 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
-        $scope.tracksGenre = 'Soulful House';
-        $scope.tracksCategory = 'queue';
+        $scope.tracksGenre = '';
+        $scope.tracksCategory = '';
         //$scope.isCollapsedCategory = true;
+        $scope.dropdown = {
+            title: "Choose Genre"
+        };
 
-        //$scope.showPlayer = Shared.getShowPlayer();
-        //console.log('Tracks says', $scope.showPlayer.show);
 
         $scope.play = function (artist, genre) {
             Shared.setShowPlayer();
@@ -24,20 +25,27 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
             $scope.find();
         };
 
-        // Dropdown
-        // http://stackoverflow.com/questions/28050980/how-can-i-modify-an-angularjs-bootstrap-dropdown-select-so-that-it-does-not-us
-        $scope.ddItems = [
-            {id: 0, name: 'Soulful House'},
-            {id: 1, name: 'Deep House'},
-            {id: 2, name: 'Afro House'},
-            {id: 3, name: 'All genres'}
-        ];
-
-        $scope.ddItem = null;
-        $scope.ddCallback = function (item) {
-            $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
+        //load tracks genre
+        $scope.loadTracksGenre = function (genre) {
+            $scope.dropdown.title = genre;
+            $scope.tracksGenre = genre === 'All genres' ? '' : genre;
             $scope.find();
         };
+
+        // Dropdown
+        // http://stackoverflow.com/questions/28050980/how-can-i-modify-an-angularjs-bootstrap-dropdown-select-so-that-it-does-not-us
+        //$scope.ddItems = [
+        //    {id: 0, name: 'Soulful House'},
+        //    {id: 1, name: 'Deep House'},
+        //    {id: 2, name: 'Afro House'},
+        //    {id: 3, name: 'All genres'}
+        //];
+
+        //$scope.ddItem = null;
+        //$scope.ddCallback = function (item) {
+        //    $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
+        //    $scope.find();
+        //};
 
         //// Tabs
         //$scope.listTabs = [

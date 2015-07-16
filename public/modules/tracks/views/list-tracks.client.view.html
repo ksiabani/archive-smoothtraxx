@@ -53,14 +53,14 @@
                         <!--Angular UI dropdown directive-->
                         <div class="btn btn-group navbar-right" dropdown dropdown-append-to-body>
                             <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
-                                Choose Genre <span class="caret"></span>
+                                {{dropdown.title}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="" data-ng-click="loadTracksGenre('Soulful House')">Soulful House</a></li>
+                                <li><a href="" data-ng-click="loadTracksGenre('Deep House')">Deep House</a></li>
+                                <li><a href="" data-ng-click="loadTracksGenre('Afro House')">Afro House</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="" data-ng-click="loadTracksGenre('All genres')">All genres</a></li>
                             </ul>
                         </div>
 
