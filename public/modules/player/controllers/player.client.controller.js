@@ -8,6 +8,13 @@ angular.module('core').controller('PlayerController',
       $scope.API = null;
       $scope.currentVideo = 0;
 
+      // if player is shown, start playing
+      $scope.$watch('showPlayer.show', function(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          $scope.play(9);
+        }
+      });
+
       $scope.onPlayerReady = function (API) {
         $scope.API = API;
       };
