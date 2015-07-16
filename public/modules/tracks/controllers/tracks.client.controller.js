@@ -6,16 +6,15 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
-        $scope.tracksGenre = '';
-        $scope.tracksCategory = '';
+        $scope.tracksGenre = 'Soulful House';
+        $scope.tracksCategory = 'queue';
 
         //$scope.showPlayer = Shared.getShowPlayer();
         //console.log('Tracks says', $scope.showPlayer.show);
 
         $scope.play = function (artist, genre) {
-            $scope.showPlayer = Shared.setShowPlayer();
-            var type = $scope.tracksCategory;
-            console.log(type, artist, genre);
+            Shared.setShowPlayer();
+            Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre);
         };
 
         // Dropdown

@@ -7,14 +7,26 @@ angular.module('core').service('Shared', [
     var showPlayer = {
       show: false
     };
+    var playerParams = {
+      category: '',
+      genre: ''
+    };
 
     return {
-      getShowPlayer:function () {
+      getShowPlayer: function () {
         return showPlayer;
       },
-      setShowPlayer:function () {
+      setShowPlayer: function () {
         showPlayer.show = true;
         return showPlayer;
+      },
+      getPlayerParams: function () {
+        return playerParams;
+      },
+      setPlayerParams: function (category, genre) {
+        playerParams.category = category;
+        playerParams.genre =  genre;
+        return playerParams;
       }
     };
   }

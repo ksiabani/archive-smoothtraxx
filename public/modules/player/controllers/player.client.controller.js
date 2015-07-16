@@ -34,6 +34,8 @@ angular.module('core').controller('PlayerController',
       };
 
       $scope.play = function(index) {
+        $scope.playerParams = Shared.getPlayerParams();
+        console.log($scope.playerParams.category, $scope.playerParams.genre );
         $scope.videos = [];
         Tracks.query().$promise.then(function(tracks){
           angular.forEach(tracks, function(track) {
