@@ -16,7 +16,8 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
                 'public/lib/font-awesome/css/font-awesome.css',
-                'public/lib/ionicons/css/ionicons.css'
+                'public/lib/ionicons/css/ionicons.css',
+			  	'public/lib/ng-mfb/mfb/dist/mfb.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -32,7 +33,8 @@ module.exports = {
 				'public/lib/ngInfiniteScroll/build/ng-infinite-scroll.js',
 				'public/lib/color-thief/src/color-thief.js',
 				'public/lib/angular-colorthief/angular-colorthief.js',
-				'public/lib/angular-deckgrid/angular-deckgrid.js'
+				'public/lib/angular-deckgrid/angular-deckgrid.js',
+				'public/lib/ng-mfb/src/mfb-directive.js'
 			]
 		},
 		css: [

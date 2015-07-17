@@ -1,5 +1,12 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
     <div class="container">
+
+        <nav class="visible-xs" mfb-menu position="br" effect="zoomin" label="PLAY ALL"
+             active-icon="ion-play" resting-icon="ion-ios-play"
+             toggling-method="click">
+            <button mfb-button icon="ion-shuffle" label="Play Shuffle"></button>
+        </nav>
+
         <!--<h4>Discover-->
         <!--<dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
         <!--</h4>-->
@@ -28,9 +35,9 @@
         <!--</div>-->
         <!--</div>-->
 
-
         <div class="row">
             <div class="col-md-9">
+
 
                 <nav class="navbar navbar-default custom-navbar">
                     <div class="container-fluid">
@@ -51,6 +58,18 @@
                         <!--</div>-->
 
                         <!--Angular UI dropdown directive-->
+                        <div class="btn btn-group navbar-right hidden-xs" dropdown dropdown-append-to-body>
+                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                                PLAY
+                                <i class="icon ion-play"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="" data-ng-click="loadTracksGenre('Soulful House')"><i class="icon ion-play"></i> Play All</a></li>
+                                <li><a href="" data-ng-click="loadTracksGenre('Deep House')"><i class="icon ion-shuffle"></i> Play Shuffle</a></li>
+                            </ul>
+                        </div>
+
+                        <!--Angular UI dropdown directive-->
                         <div class="btn btn-group navbar-right" dropdown dropdown-append-to-body>
                             <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
                                 {{dropdown.title}} <span class="caret"></span>
@@ -63,6 +82,8 @@
                                 <li><a href="" data-ng-click="loadTracksGenre('All genres')">All genres</a></li>
                             </ul>
                         </div>
+
+
 
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,6 +114,7 @@
 
         <div class="row">
             <div class="col-md-9">
+
                 <!--<div infinite-scroll="findMore()" infinite-scroll-disabled="busy" infinite-scroll-distance="0">-->
                 <div class="list-group list-tracks">
                     <div class="list-group-item" data-ng-repeat="track in tracks">

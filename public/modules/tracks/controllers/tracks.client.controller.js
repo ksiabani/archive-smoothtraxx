@@ -10,7 +10,7 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.tracksCategory = '';
         //$scope.isCollapsedCategory = true;
         $scope.dropdown = {
-            title: "Choose Genre"
+            title: 'Choose Genre'
         };
 
 

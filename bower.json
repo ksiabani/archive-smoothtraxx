@@ -19,7 +19,8 @@
     "ionicons": "~2.0.1",
     "ngInfiniteScroll": "~1.2.1",
     "angular-colorthief": "~0.1.0",
-    "angular-deckgrid": "~0.5.0"
+    "angular-deckgrid": "~0.5.0",
+    "ng-mfb": "~0.6.1"
   },
   "devDependencies": {}
 }
