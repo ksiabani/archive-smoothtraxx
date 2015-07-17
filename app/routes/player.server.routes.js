@@ -1,21 +1,14 @@
 'use strict';
 
 module.exports = function (app) {
-  // Root routing
+
   var player = require('../../app/controllers/player.server.controller');
-  //var tracks = require('../../app/controllers/tracks.server.controller');
-  //app.route('/').get(core.index);
 
   // Player Routes
-  app.route('/tracks/player')
+  app.route('/playlist')
       .get(player.playlist);
 
-  // Finish by binding the Track middleware
-  //app.param('trackId', tracks.trackByID);
-
 };
-
-
 
 //// Tracks Routes
 //app.route('/tracks')

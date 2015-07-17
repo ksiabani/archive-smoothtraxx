@@ -95,14 +95,10 @@ exports.delete = function (req, res) {
  *                                                                          have a suggestion for change (or change request)
  */
 exports.list = function (req, res) {
-    //var queryPage = req.query.page;
-    var queryPage = 1;
-    //var queryLimit = req.query.limit;
-    var queryLimit = 10;
     var category =  req.query.category;
     var genre = req.query.genre;
 
-    if (!category) {
+    if (category === 'latest') {
         Track.paginate(
             {
                 genre: {
@@ -133,7 +129,7 @@ exports.list = function (req, res) {
                     $regex: new RegExp(genre)
                 }
             },
-            queryPage, queryLimit, function (err, pageCount, tracks, itemCount) {
+            req.query.page, req.query.limit, function (err, pageCount, tracks, itemCount) {
                 if (err) {
                     return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)
@@ -182,7 +178,7 @@ exports.list = function (req, res) {
                     $regex: new RegExp(genre)
                 }
             },
-            queryPage, queryLimit, function (err, pageCount, tracks, itemCount) {
+            req.query.page, req.query.limit, function (err, pageCount, tracks, itemCount) {
                 if (err) {
                     return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)

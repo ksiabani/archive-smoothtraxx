@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('core').controller('PlayerController',
-    ['$scope', '$sce', '$timeout','Tracks', 'Shared', function ($scope, $sce, $timeout, Tracks, Shared) {
+    ['$scope', '$sce', '$timeout', 'Player', 'Shared', function ($scope, $sce, $timeout, Player, Shared) {
 
       $scope.showPlayer = Shared.getShowPlayer();
       $scope.state = null;
@@ -9,9 +9,9 @@ angular.module('core').controller('PlayerController',
       $scope.currentVideo = 0;
 
       // if player is shown, start playing
-      $scope.$watch('showPlayer.show', function(newValue, oldValue) {
+      $scope.$watch('showPlayer.show', function (newValue, oldValue) {
         if (newValue !== oldValue) {
-          $scope.play(9);
+          $scope.play(3);
         }
       });
 
@@ -28,25 +28,42 @@ angular.module('core').controller('PlayerController',
       };
 
       $scope.config = {
-          preload: 'none',
-          autoPlay: false,
-          sources: '[]'
+        preload: 'none',
+        autoPlay: false,
+        sources: '[]'
       };
 
-      $scope.play = function(index) {
+      //category
+      //mode
+      //genre
+      //label
+      //start_with
+
+      $scope.play = function (index) {
         $scope.playerParams = Shared.getPlayerParams();
-        console.log($scope.playerParams.category, $scope.playerParams.genre );
         $scope.videos = [];
-        Tracks.query().$promise.then(function(tracks){
-          angular.forEach(tracks, function(track) {
-            $scope.videos.push({ sources: [{ src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + track.filename_128), type: 'audio/mpeg' }]});
-          });
-          $scope.API.stop();
-          $scope.currentVideo = index;
-          $scope.config.sources = $scope.videos[index].sources;
-          $timeout($scope.API.play.bind($scope.API), 100);
-        });
+        Player.query({
+              category: $scope.playerParams.options.category,
+              mode: $scope.playerParams.options.mode,
+              genre: $scope.playerParams.options.genre,
+              start_with: $scope.playerParams.options.start_with
+            })
+            .$promise.then(function (tracks) {
+              angular.forEach(tracks, function (track) {
+                $scope.videos.push({
+                  sources: [{
+                    src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + track.filename_128),
+                    type: 'audio/mpeg'
+                  }]
+                });
+              });
+              $scope.API.stop();
+              $scope.currentVideo = index;
+              $scope.config.sources = $scope.videos[index].sources;
+              $timeout($scope.API.play.bind($scope.API), 100);
+            });
       };
+
 
     }]
 );

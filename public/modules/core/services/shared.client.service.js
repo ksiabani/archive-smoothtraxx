@@ -8,8 +8,7 @@ angular.module('core').service('Shared', [
       show: false
     };
     var playerParams = {
-      category: '',
-      genre: ''
+      options: ''
     };
 
     return {
@@ -23,9 +22,8 @@ angular.module('core').service('Shared', [
       getPlayerParams: function () {
         return playerParams;
       },
-      setPlayerParams: function (category, genre) {
-        playerParams.category = category;
-        playerParams.genre =  genre;
+      setPlayerParams: function (options) {
+        playerParams.options = options;
         return playerParams;
       }
     };

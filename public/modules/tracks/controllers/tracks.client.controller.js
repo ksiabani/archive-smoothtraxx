@@ -7,21 +7,51 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
         $scope.tracksGenre = '';
-        $scope.tracksCategory = '';
-        //$scope.isCollapsedCategory = true;
+        $scope.tracksCategory = 'latest';
         $scope.dropdown = {
             title: 'Choose Genre'
         };
+        $scope.mfb = {
+            state: 'closed'
+        };
 
+        $scope.log = function(text) {
+            console.log(text);
+        };
 
-        $scope.play = function (artist, genre) {
+        //$scope.playAll = function () {
+        //    //if ($scope.mfb.state === 'open') {
+        //    //    Shared.setShowPlayer();
+        //    //    Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre, 'all');
+        //        console.log('Play All');
+        //    //}
+        //};
+
+        //$scope.playShuffle = function (filename) {
+        //    $scope.mfb.state = 'closed';
+        //    Shared.setShowPlayer();
+        //    Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre, 'shuffle', filename);
+        //    console.log('Play Shuffle');
+        //};
+
+        //category
+        //mode
+        //genre
+        //label
+        //start_with
+
+        $scope.play = function (options) {
             Shared.setShowPlayer();
-            Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre);
+            options.category = $scope.tracksCategory;
+            options.mode = options.mode || 'shuffle';
+            options.genre = $scope.tracksGenre;
+            Shared.setPlayerParams(options);
         };
 
         //load tracks category
         $scope.loadTracksCategory = function (category) {
             $scope.tracksCategory = category;
+            console.log($scope.tracksCategory);
             $scope.find();
         };
 
