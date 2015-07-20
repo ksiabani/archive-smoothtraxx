@@ -1,6 +1,7 @@
 'use strict';
 
 // Re-usable $splash module
+// http://popdevelop.com/2014/07/sexy-splash-modal-using-bootstrap-css3-and-angularjs/
 angular.module('ui.splash', ['ui.bootstrap'])
     .service('$splash', [
       '$modal',
@@ -13,7 +14,7 @@ angular.module('ui.splash', ['ui.bootstrap'])
             opts = angular.extend(opts || {}, {
               backdrop: false,
               scope: scope,
-              templateUrl: 'splash/content.html',
+              templateUrl: 'modules/tracks/views/view-track.client.view.html',
               windowTemplateUrl: 'splash/index.html'
             });
             return $modal.open(opts);
@@ -29,12 +30,12 @@ angular.module('ui.splash', ['ui.bootstrap'])
             '  <div class="splash-inner" ng-transclude></div>' +
             '</section>'
         );
-        $templateCache.put('splash/content.html',
-            '<div class="splash-content text-center">' +
-            '  <h1 ng-bind="title"></h1>' +
-            '  <p class="lead" ng-bind="message"></p>' +
-            '  <button class="btn btn-lg btn-outline" ng-bind="btnText || \'Ok, cool\'" ng-click="$close()"></button>' +
-            '</div>'
-        );
+        //$templateCache.put('splash/content.html',
+        //    '<div class="splash-content text-center">' +
+        //    '  <h1 ng-bind="title"></h1>' +
+        //    '  <p class="lead" ng-bind="message"></p>' +
+        //    '  <button class="btn btn-lg btn-outline" ng-bind="btnText || \'Ok, cool\'" ng-click="$close()"></button>' +
+        //    '</div>'
+        //);
       }
     ]);
