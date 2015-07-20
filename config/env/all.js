@@ -34,7 +34,8 @@ module.exports = {
 				'public/lib/color-thief/src/color-thief.js',
 				'public/lib/angular-colorthief/angular-colorthief.js',
 				'public/lib/angular-deckgrid/angular-deckgrid.js',
-				'public/lib/ng-mfb/src/mfb-directive.js'
+				'public/lib/ng-mfb/src/mfb-directive.js',
+				'public/lib/angular-morph/dist/angular-morph.js'
 			]
 		},
 		css: [

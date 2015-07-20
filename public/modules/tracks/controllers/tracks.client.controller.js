@@ -11,13 +11,24 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         $scope.dropdown = {
             title: 'Choose Genre'
         };
-        $scope.mfb = {
-            state: 'closed'
-        };
+        //$scope.mfb = {
+        //    state: 'closed'
+        //};
 
         $scope.log = function(text) {
             console.log(text);
         };
+
+
+
+        $scope.settings = {
+            closeEl: '.close',
+            overlay: {
+                templateUrl: 'modules/tracks/views/track-overlay.client.view.html',
+                scroll: false
+            }
+        };
+
 
         //$scope.playAll = function () {
         //    //if ($scope.mfb.state === 'open') {

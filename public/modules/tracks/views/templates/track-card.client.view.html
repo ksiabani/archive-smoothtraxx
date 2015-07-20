@@ -1,14 +1,14 @@
 <div class="media">
     <div class="media-left">
-        <a href="/#!/tracks/{{track._id}}">
-            <img class="media-object" src="http://lorempixel.com/60/60" alt="...">
-        </a>
+        <!--<a href="/#!/tracks/{{track._id}}">-->
+            <img class="media-object" src="http://lorempixel.com/60/60" alt="..." ng-morph-overlay="settings">
+        <!--</a>-->
     </div>
     <div class="media-body">
         <i class="fa fa-ellipsis-v pull-right visible-xs"></i>
 
         <div class="pull-right hidden-xs" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" data-ng-click="play({ start_with: track.filename_128, title: track.title, artist: track.artist})"><i class="fa fa-play fa-1x"></i>
+            <button type="button" class="btn btn-default" data-ng-click="play({ mode: 'all', start_with: track.filename_128, title: track.title, artist: track.artist})"><i class="fa fa-play fa-1x"></i>
             </button>
             <button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i>
             </button>

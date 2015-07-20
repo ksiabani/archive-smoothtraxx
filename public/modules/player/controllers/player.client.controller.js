@@ -25,7 +25,6 @@ angular.module('core').controller('PlayerController',
 
       $scope.onCompleteVideo = function () {
         $scope.isCompleted = true;
-        //$scope.index++;
         $scope.currentVideo++;
         if ($scope.currentVideo >= $scope.videos.length)
           $scope.currentVideo = 0;
@@ -45,14 +44,7 @@ angular.module('core').controller('PlayerController',
         sources: '[]'
       };
 
-      //category
-      //mode
-      //genre
-      //label
-      //start_with
-
       $scope.play = function () {
-        //$scope.index = 0; //Todo: Do I need this?
         $scope.playerParams = Shared.getPlayerParams();
         $scope.videos = [];
         // Get playlist tracks according to parameters and use them to build array for videogular to consume
@@ -74,35 +66,11 @@ angular.module('core').controller('PlayerController',
                   filename: track.filename_128
                 });
               });
-              // If user requested a track (hit play on track) load this track first
+              // If user requested a track (hit play on track) go to that track
+              // http://stackoverflow.com/questions/8668174/indexof-method-in-an-object-array
               if($scope.playerParams.options.start_with) {
-              //  // Prepare object to push
-              //  var startWithVideo = {
-              //    sources: [{
-              //      src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + $scope.playerParams.options.start_with),
-              //      type: 'audio/mpeg'
-              //    }],
-              //    title: $scope.playerParams.options.title,
-              //    artist: $scope.playerParams.options.artist
-              //  };
                 $scope.currentVideo = $scope.videos.map(function(e) { return e.filename; }).indexOf($scope.playerParams.options.start_with);
-                //console.log(pos);
-                //$scope.videos.unshift($scope.videos.slice(pos, 1));
-                //$scope.videos.splice(pos+1, 1);
-                //splice(new_index, 0, this.splice(old_index, 1)[0]);
-                //$scope.videos.splice(0, 0, $scope.videos.splice(pos, 1)[0]);
               }
-
-              //pos = myArray.map(function(e) { return e.hello; }).indexOf('stevie');
-
-
-
-              //var array = [2, 5, 9];
-              //var index = array.indexOf(5);
-              //if (index > -1) {
-              //  array.splice(index, 1);
-              //}
-
 
               $scope.API.stop();
               $scope.currentVideo = $scope.currentVideo++ || 0;
