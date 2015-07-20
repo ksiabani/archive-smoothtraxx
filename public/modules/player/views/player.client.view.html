@@ -19,32 +19,24 @@
                             <span data-ng-show="API.isBuffering">Loading...</span>
                             <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play' || API.isBuffering"></i>
                             <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play' && !API.isBuffering"></i>
-                            <i class="icon ion-skip-forward xxlarge" data-ng-click="playNext()" data-ng-hide="API.isBuffering"></i>
+                            <i class="icon ion-skip-forward xxlarge" data-ng-click="onCompleteVideo()" data-ng-hide="API.isBuffering"></i>
                         </div>
                         <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
                         <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
                         <!--</div>-->
-                        {{config.sources}}
+                        {{videos[currentVideo].title}}
                         <br/>
-                        {{videotracks[0].artist}}<br/>
+                        {{videos[currentVideo].artist}}<br/>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <!--<videogular vg-player-ready="onPlayerReady($API)">-->
-            <!--<vg-media vg-src="PlayerController.config.sources" vg-type="audio">-->
-            <!--&lt;!&ndash;<vg-media vg-type="audio">&ndash;&gt;-->
-            <!--</vg-media>-->
-        <!--</videogular>-->
-
         <videogular vg-player-ready="onPlayerReady($API)" vg-complete="onCompleteVideo()">
             <vg-media vg-src="config.sources">
             </vg-media>
         </videogular>
-
 
 </section>

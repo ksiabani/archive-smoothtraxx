@@ -1,8 +1,8 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared',
-    function ($scope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared) {
+angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared',
+    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
@@ -41,11 +41,12 @@ angular.module('tracks').controller('TracksController', ['$scope', '$stateParams
         //start_with
 
         $scope.play = function (options) {
-            Shared.setShowPlayer();
+            Shared.setShowPlayer(true);
             options.category = $scope.tracksCategory;
             options.mode = options.mode || 'shuffle';
             options.genre = $scope.tracksGenre;
             Shared.setPlayerParams(options);
+            $rootScope.$broadcast('initPlayer');
         };
 
         //load tracks category

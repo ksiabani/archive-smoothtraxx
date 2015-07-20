@@ -9,10 +9,14 @@ angular.module('core').controller('PlayerController',
       $scope.currentVideo = 0;
 
       // if player is shown, start playing
-      $scope.$watch('showPlayer.show', function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          $scope.play(3);
-        }
+      //$scope.$watch('showPlayer.show', function (newValue, oldValue) {
+      //  if (newValue !== oldValue) {
+      //    $scope.play();
+      //  }
+      //});
+
+      $scope.$on('initPlayer', function() {
+        $scope.play();
       });
 
       $scope.onPlayerReady = function (API) {
@@ -21,14 +25,22 @@ angular.module('core').controller('PlayerController',
 
       $scope.onCompleteVideo = function () {
         $scope.isCompleted = true;
+        //$scope.index++;
         $scope.currentVideo++;
         if ($scope.currentVideo >= $scope.videos.length)
           $scope.currentVideo = 0;
         $scope.setVideo($scope.currentVideo);
       };
 
+      $scope.setVideo = function (index) {
+          $scope.API.stop();
+          $scope.currentVideo = index;
+          $scope.config.sources = $scope.videos[index].sources;
+          $timeout($scope.API.play.bind($scope.API), 100);
+      };
+
       $scope.config = {
-        preload: 'none',
+        preload: 'preload',
         autoPlay: false,
         sources: '[]'
       };
@@ -39,9 +51,11 @@ angular.module('core').controller('PlayerController',
       //label
       //start_with
 
-      $scope.play = function (index) {
+      $scope.play = function () {
+        //$scope.index = 0; //Todo: Do I need this?
         $scope.playerParams = Shared.getPlayerParams();
         $scope.videos = [];
+        // Get playlist tracks according to parameters and use them to build array for videogular to consume
         Player.query({
               category: $scope.playerParams.options.category,
               mode: $scope.playerParams.options.mode,
@@ -54,12 +68,45 @@ angular.module('core').controller('PlayerController',
                   sources: [{
                     src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + track.filename_128),
                     type: 'audio/mpeg'
-                  }]
+                  }],
+                  title: track.title,
+                  artist: track.artist,
+                  filename: track.filename_128
                 });
               });
+              // If user requested a track (hit play on track) load this track first
+              if($scope.playerParams.options.start_with) {
+              //  // Prepare object to push
+              //  var startWithVideo = {
+              //    sources: [{
+              //      src: $sce.trustAsResourceUrl('https://s3-eu-west-1.amazonaws.com/smx2015/RaiNAS_1/RaiNAS/music/live/2015/' + $scope.playerParams.options.start_with),
+              //      type: 'audio/mpeg'
+              //    }],
+              //    title: $scope.playerParams.options.title,
+              //    artist: $scope.playerParams.options.artist
+              //  };
+                $scope.currentVideo = $scope.videos.map(function(e) { return e.filename; }).indexOf($scope.playerParams.options.start_with);
+                //console.log(pos);
+                //$scope.videos.unshift($scope.videos.slice(pos, 1));
+                //$scope.videos.splice(pos+1, 1);
+                //splice(new_index, 0, this.splice(old_index, 1)[0]);
+                //$scope.videos.splice(0, 0, $scope.videos.splice(pos, 1)[0]);
+              }
+
+              //pos = myArray.map(function(e) { return e.hello; }).indexOf('stevie');
+
+
+
+              //var array = [2, 5, 9];
+              //var index = array.indexOf(5);
+              //if (index > -1) {
+              //  array.splice(index, 1);
+              //}
+
+
               $scope.API.stop();
-              $scope.currentVideo = index;
-              $scope.config.sources = $scope.videos[index].sources;
+              $scope.currentVideo = $scope.currentVideo++ || 0;
+              $scope.config.sources = $scope.videos[$scope.currentVideo].sources;
               $timeout($scope.API.play.bind($scope.API), 100);
             });
       };
@@ -95,7 +142,7 @@ angular.module('core').controller('PlayerController',
 ////    });
 ////};
 //
-//$scope.videos = [
+//$scope.vide0s = [
 //    {
 //        sources: [
 //            {

@@ -15,8 +15,8 @@ angular.module('core').service('Shared', [
       getShowPlayer: function () {
         return showPlayer;
       },
-      setShowPlayer: function () {
-        showPlayer.show = true;
+      setShowPlayer: function (boolean) {
+        showPlayer.show = boolean;
         return showPlayer;
       },
       getPlayerParams: function () {
