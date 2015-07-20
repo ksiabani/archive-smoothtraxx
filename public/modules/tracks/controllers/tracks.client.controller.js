@@ -1,8 +1,8 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared',
-    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared) {
+angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$modal', '$log', '$splash',
+    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $modal, $log, $splash) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
@@ -15,19 +15,48 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         //    state: 'closed'
         //};
 
-        $scope.log = function(text) {
-            console.log(text);
+        //$scope.log = function(text) {
+        //    console.log(text);
+        //};
+
+        //splash modal
+        $scope.openSplash = function () {
+            $splash.open({
+                title: 'Hi there!',
+                message: 'This sure is a fine modal, isn\'t it?'
+            });
         };
 
 
+        //angular ui modal
+        $scope.items = ['item1', 'item2', 'item3'];
+        //$scope.animationsEnabled = true;
+        $scope.open = function (size) {
 
-        $scope.settings = {
-            closeEl: '.close',
-            overlay: {
-                templateUrl: 'modules/tracks/views/track-overlay.client.view.html',
-                scroll: false
-            }
+            var modalInstance = $modal.open({
+                animation: true,
+                templateUrl: 'modules/tracks/views/view-track.client.view.html',
+                controller: 'ModalInstanceCtrl',
+                size: size,
+                resolve: {
+                    items: function () {
+                        return $scope.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
         };
+
+        //$scope.toggleAnimation = function () {
+        //    $scope.animationsEnabled = !$scope.animationsEnabled;
+        //};
+
+
 
 
         //$scope.playAll = function () {

@@ -289,26 +289,3 @@ i.track-play.ion-play {
 }
 
 
-/* ng-morph-overlay */
-.info-overlay {
-    color: #F0F1F0;
-    font-size: 20px;
-    text-align: left;
-    background: #1BBA9A;
-}
-.content {
-    padding: 20px;
-}
-.content h2 {
-    text-align: center;
-}
-.info-overlay > button {
-    color: #1BBA9A;
-    display: block;
-    background: #fcfcfc;
-    /* center the button: */
-    left: -125px;
-    margin: 20px 50%;
-    position: relative;
-}
-
