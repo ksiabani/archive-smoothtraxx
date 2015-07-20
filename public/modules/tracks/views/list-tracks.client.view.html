@@ -1,11 +1,11 @@
 <section data-ng-controller="TracksController" data-ng-init="find()">
     <div class="container">
 
-        <nav class="visible-xs" mfb-menu position="br" effect="zoomin" label="PLAY ALL"
-             active-icon="ion-play" resting-icon="ion-headphone"
-             toggling-method="click"  data-ng-click="mfb.state === 'closed' && play({ mode: 'all' })" menu-state="mfb.state">
-            <button mfb-button icon="ion-shuffle" label="Play Shuffle" data-ng-click="play({ mode: 'shuffle' })"></button>
-        </nav>
+        <!--<nav class="visible-xs" mfb-menu position="br" effect="zoomin" label="PLAY ALL"-->
+             <!--active-icon="ion-play" resting-icon="ion-headphone"-->
+             <!--toggling-method="click"  data-ng-click="mfb.state === 'closed' && play({ mode: 'all' })" menu-state="mfb.state">-->
+            <!--<button mfb-button icon="ion-shuffle" label="Play Shuffle" data-ng-click="play({ mode: 'shuffle' })"></button>-->
+        <!--</nav>-->
 
         <!--<h4>Discover-->
         <!--<dropdown ng-model="ddItem" items="ddItems" callback="ddCallback(item)"></dropdown>-->
@@ -42,25 +42,17 @@
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" aria-expanded="false"
+                            <button type="button" class="btn navbar-btn btn-basecamp visible-xs" aria-expanded="false"
                                     ng-init="isCollapsedCategory = true"
                                     ng-click="isCollapsedCategory = !isCollapsedCategory">
-                                <i class="fa fa-line-chart"> Trending {{tracksCategory}}</i>
+                                <i class="fa fa-bars"></i> Trending {{tracksCategory1}}
                             </button>
                         </div>
 
-
-                        <!--Angular UI collapse directive-->
-                        <!--<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>-->
-                        <!--<div collapse="isCollapsed">-->
-                        <!--<div class="well well-lg">Some content</div>-->
-                        <!--</div>-->
-
                         <!--Angular UI dropdown directive-->
-                        <div class="btn btn-group navbar-right hidden-xs" dropdown dropdown-append-to-body>
-                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
-                                PLAY
-                                <i class="icon ion-play"></i>
+                        <div class="pull-right" dropdown dropdown-append-to-body>
+                            <button type="button" class="btn navbar-btn btn-basecamp" dropdown-toggle>
+                                <i class="fa fa-play"></i> Play
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="" data-ng-click="play({ mode: 'all' })"><i class="icon ion-play"></i> Play All</a></li>
@@ -68,22 +60,11 @@
                             </ul>
                         </div>
 
-                        <!--Angular UI dropdown directive-->
-                        <div class="btn btn-group navbar-right" dropdown dropdown-append-to-body>
-                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
-                                {{dropdown.title}} <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="" data-ng-click="loadTracksGenre('Soulful House')">Soulful House</a></li>
-                                <li><a href="" data-ng-click="loadTracksGenre('Deep House')">Deep House</a></li>
-                                <li><a href="" data-ng-click="loadTracksGenre('Afro House')">Afro House</a></li>
-                                <li class="divider"></li>
-                                <li><a href="" data-ng-click="loadTracksGenre('All genres')">All genres</a></li>
-                            </ul>
-                        </div>
-
-
-
+                        <button type="button" class="btn navbar-btn btn-basecamp pull-right" aria-expanded="false"
+                                ng-init="isCollapsedGenre = true"
+                                ng-click="isCollapsedGenre = !isCollapsedGenre">
+                            <i class="fa fa-users"></i> Choose Genre
+                        </button>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <!--<div id="header" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">-->
@@ -102,6 +83,34 @@
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
+                        <div class="nav navbar-nav navbar-right" collapse="isCollapsedGenre"
+                             ng-click="isCollapsedGenre=true">
+                            <hr>
+                            <ul class="nav navbar-nav nav-pills">
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('All genres')"> All genres</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('House')"> House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Soulful House')"> Soulful House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Deep House')"> Deep House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Afro House')"> Afro House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Nu Disco / Indie Dance')"> Nu Disco / Indie Dance</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Jackin House')"> Jackin House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Tech House')"> Tech House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Techno')"> Techno</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Classic House')"> Classic House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Soul / Funk / Disco')"> Soul / Funk / Disco</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Lounge / Chill Out')"> Lounge / Chill Out</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Afro / Latin / Brazilian')"> Afro / Latin / Brazilian</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Broken Beat / Nu-Jazz')"> Broken Beat / Nu-Jazz</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Progressive House')"> Progressive House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Electro House')"> Electro House</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Minimal')"> Minimal</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Electronica')"> Electronica</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Leftfield')"> Leftfield</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('R&B / Hip Hop')"> R&B / Hip Hop</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Acapella')"> Acapella</a></li>
+                                <li class="custom-navbar-btn"><a href="" data-ng-click="loadTracksGenre('Beats')"> Beats</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- /.container-fluid -->
                 </nav>

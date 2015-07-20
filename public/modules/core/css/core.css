@@ -274,3 +274,16 @@ i.track-play.ion-play {
     display: block;
     padding: 16px 15px;
 }
+
+/*custom buttons*/
+.btn-basecamp {
+    background-image: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 1px 0px #ddd;
+    -moz-box-shadow: 0px 1px 0px #ddd;
+    box-shadow: 0px 1px 0px #ddd;
+}
+.btn-basecamp:hover {
+    background: #fff;
+}
