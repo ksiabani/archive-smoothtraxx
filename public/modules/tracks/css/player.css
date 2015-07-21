@@ -1,0 +1,46 @@
+.player-cover {
+    margin: 0 10px 0 10px;
+}
+
+.player .player-info {
+    color: #fff;
+    /*margin-top: 14%; set a media query for this*/
+}
+
+.player-title{
+    font-size: 32px;
+}
+
+.player-artist {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.player-controls ul {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.player-controls ul li {
+    display: inline-block;
+}
+
+.player-controls ul .backward {
+    margin-left: 20%;
+    position: absolute;
+    margin-bottom: 5px;
+}
+
+.player-controls ul .play {
+    width: 15%;
+    margin-left: 45%;
+    margin-bottom: 5px;
+}
+
+.player-controls ul .forward {
+    margin-left: 15%;
+    position: absolute;
+    margin-bottom: 5px;
+}

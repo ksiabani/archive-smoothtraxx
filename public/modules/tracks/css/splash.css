@@ -47,12 +47,12 @@ body {
 }
 
 .splash .splash-content {
-    width: 660px;
-    height: 350px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    margin: -175px 0 0 -330px;
+    /*width: 660px;*/
+    /*height: 350px;*/
+    /*position: absolute;*/
+    /*top: 40%;*/
+    /*left: 50%;*/
+    /*margin: -175px 0 0 -330px;*/
     color: #fff;
     font-size: 18px;
 }

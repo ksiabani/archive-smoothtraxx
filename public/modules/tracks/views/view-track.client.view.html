@@ -1,71 +1,65 @@
-<div class="container">
-    <div class="page-header">
-        <h1><i class="fa fa-close fa-inverse pull-right"></i>Maybe something here</h1>
-    </div>
+<div data-ng-controller="TracksController" class="container-fluid">
+    <!--<div class="page-header">-->
+        <!--<h3><i class="fa fa-close fa-inverse pull-right"></i>Maybe something here</h3>-->
+    <!--</div>-->
     <div class="row">
-        <div class="col-md-6">
-            <div class="modal-body">
-                <!--<h2>Project Title</h2>-->
+        <div class="col-sm-6">
+                <!--<h2>Project Title</h2>--
                 <!--<hr class="star-primary">-->
-                <img src="http://lorempixel.com/600/600" class="img-responsive img-centered" alt="">
+            <div class="player-cover">
+                <img src="http://lorempixel.com/600/600" class="img-responsive" style="margin: 0 auto;" alt="">
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="container">
-                <div class="row">
-                    <div class="splash-content">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                            by <a
-                                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can
-                            download their
-                            free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
-                            Close
-                        </button>
-                    </div>
+        <div class="col-sm-6">
+            <div class="player">
+                <div class="player-info">
+                    <div class="h3 text-center">{{title}}</div>
+                    <div class="h4 text-center">{{artist}}</div>
                 </div>
-                <div class="row">
-                    <div class="splash-content">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                            by <a
-                                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can
-                            download their
-                            free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
-                            Close
-                        </button>
-                    </div>
+                <div class="player-controls">
+                    <ul>
+                        <li class="backward"><i class="fa fa-backward fa-inverse fa-2x"></i></li>
+                        <li class="play"><i class="fa fa-play-circle fa-inverse fa-2x"></i></li>
+                        <li class="forward"><i class="fa fa-forward fa-inverse fa-2x"></i></li>
+                    </ul>
+
+
+
                 </div>
             </div>
-
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <div class="media">
+            <div class="media-left">
+                <a href="/#!/tracks/55152fc937a239a149385695">
+                    <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <div class="pull-right">
+                    <!--<i class="icon ion-star xxlarge"></i>-->
+                    <!--<i class="icon ion-heart xxlarge">123</i>-->
+                    <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
+                    <!--<i class="icon ion-skip-backward xxlarge"></i>-->
+                    <!--<i class="icon ion-loading-c xxlarge" data-ng-show="!API.isBuffering"></i>-->
+                    <!--<i class="fa fa-spinner fa-spin"></i>-->
+                    <span data-ng-show="API.isBuffering">Loading...</span>
+                    <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play' || API.isBuffering"></i>
+                    <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play' && !API.isBuffering"></i>
+                    <i class="icon ion-skip-forward xxlarge" data-ng-click="onCompleteVideo()" data-ng-hide="API.isBuffering"></i>
+                </div>
+                <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
+                <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
+                <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
+                <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
+                <!--</div>-->
+                {{videos[currentVideo].title}}
+                <br/>
+                {{videos[currentVideo].artist}}<br/>
+            </div>
         </div>
     </div>
 </div>

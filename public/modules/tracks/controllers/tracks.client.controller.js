@@ -1,8 +1,8 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$modal', '$log', '$splash',
-    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $modal, $log, $splash) {
+angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$log', '$splash',
+    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $log, $splash) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
@@ -20,10 +20,11 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         //};
 
         //splash modal
-        $scope.openSplash = function () {
+        $scope.openSplash = function (details) {
             $splash.open({
-                title: 'Hi there!',
-                message: 'This sure is a fine modal, isn\'t it?'
+                title: details.title,
+                artist: details.artist,
+                label: details.label
             });
         };
 
