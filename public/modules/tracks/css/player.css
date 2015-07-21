@@ -60,4 +60,5 @@
 /*center toolbar http://stackoverflow.com/questions/19040121/unable-to-center-div-on-bootstrap-3*/
 .player .btn-toolbar {
     display: inline-block;
+    margin-bottom: 50px; /*so the player bar don't hide the buttons*/
 }
