@@ -1,8 +1,8 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$log',
-    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $log) {
+angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$log', '$window',
+    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $log, $window) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
@@ -27,6 +27,10 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         //        label: details.label
         //    });
         //};
+
+        $scope.goBack = function() {
+            $window.history.back();
+        };
 
         $scope.genres = [
             'House',
