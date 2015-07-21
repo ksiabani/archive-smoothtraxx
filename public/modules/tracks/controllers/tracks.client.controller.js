@@ -28,6 +28,31 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         //    });
         //};
 
+        $scope.genres = [
+            'House',
+            'Soulful House',
+            'Deep House',
+            'Afro House',
+            'Nu Disco / Indie Dance',
+            'Jackin House',
+            'Tech House',
+            'Techno',
+            'Classic House',
+            'Soul / Funk / Disco',
+            'Lounge / Chill Out',
+            'Afro / Latin / Brazilian',
+            'Broken Beat / Nu-Jazz',
+            'Progressive House',
+            'Electro House',
+            'Minimal',
+            'Electronica',
+            'Leftfield',
+            'R&B / Hip Hop',
+            'DJ Tools',
+            'Acapella',
+            'Beats'
+        ];
+
         $scope.play = function (options) {
             Shared.setShowPlayer(true);
             options.category = $scope.tracksCategory;

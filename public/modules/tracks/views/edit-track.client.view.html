@@ -1,23 +1,80 @@
-<section data-ng-controller="TracksController" data-ng-init="findOne()">
-    <div class="page-header">
-        <h1>Edit Track</h1>
-    </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="update()" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="track.name" id="name" class="form-control" placeholder="Name" required>
+<section data-ng-controller="TracksController" class="container" data-ng-init="findOne()">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img src="http://lorempixel.com/600/600" class="img-responsive" style="margin: 0 auto;" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <form class="form-horizontal" data-ng-submit="update()" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="track.title" id="title" class="form-control" placeholder="Title" required>
+                        </div>
+                        <label class="control-label" for="artist">Artist</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="track.artist" id="artist" class="form-control" placeholder="Artist" required>
+                        </div>
+                        <label class="control-label" for="label">Label</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="track.publisher" id="label" class="form-control" placeholder="Label" required>
+                        </div>
+                        <label class="control-label" for="genre">Genre</label>
+                        <div class="controls">
+                            <!--<input type="text" data-ng-model="track.genre" id="genre" class="form-control" placeholder="Genre" required>-->
+                            <div data-ng-model="track.genre" id="genre" class="btn-group" dropdown is-open="status.isopen" required>
+                                <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                    {{track.genre}} <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="genre in genres">
+                                        <a href data-ng-click="track.genre = genre">{{genre}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label class="control-label" for="year">Year</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="track.year" id="year" class="form-control" placeholder="Year" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-default">
+                    </div>
+                    <div data-ng-show="error" class="text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
     </div>
 </section>
+
+<!--<section data-ng-controller="TracksController" data-ng-init="findOne()">-->
+    <!--<div class="page-header">-->
+        <!--<h1>Edit Track</h1>-->
+    <!--</div>-->
+    <!--<div class="col-md-12">-->
+        <!--<form class="form-horizontal" data-ng-submit="update()" novalidate>-->
+            <!--<fieldset>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" for="name">Name</label>-->
+                    <!--<div class="controls">-->
+                        <!--<input type="text" data-ng-model="track.name" id="name" class="form-control" placeholder="Name" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="submit" value="Update" class="btn btn-default">-->
+                <!--</div>-->
+				<!--<div data-ng-show="error" class="text-danger">-->
+					<!--<strong data-ng-bind="error"></strong>-->
+				<!--</div>-->
+            <!--</fieldset>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</section>-->
