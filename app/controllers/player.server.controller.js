@@ -81,7 +81,7 @@ exports.playlist = function (req, res) {
     });
   }
 
-  query.sort('-released ').select({artist: 1, title: 1, publisher: 1, filename_128: 1, genre: 1, _id: 0 }).limit(100).exec(function (err, tracks) {
+  query.sort('-released ').select({artist: 1, title: 1, publisher: 1, filename_128: 1, genre: 1, _id: 1 }).limit(100).exec(function (err, tracks) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

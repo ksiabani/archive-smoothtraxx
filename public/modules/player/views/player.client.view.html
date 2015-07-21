@@ -1,34 +1,23 @@
-<!--<section data-ng-controller="PlayerController" data-ng-init="play()" data-ng-show="showPlayer.show">-->
 <section data-ng-controller="PlayerController" data-ng-show="showPlayer.show">
-        <div class="navbar navbar-default navbar-fixed-bottom">
+        <div id="player" class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="media">
                     <div class="media-left">
-                        <a href="/#!/tracks/55152fc937a239a149385695">
+                        <a href="/#!/tracks/{{videos[currentVideo].id}}">
                             <img class="media-object" src="http://lorempixel.com/40/40" alt="...">
                         </a>
                     </div>
                     <div class="media-body">
                         <div class="pull-right">
-                            <!--<i class="icon ion-star xxlarge"></i>-->
-                            <!--<i class="icon ion-heart xxlarge">123</i>-->
-                            <!--<i class="icon ion-android-share-alt xxlarge"></i>-->
-                            <!--<i class="icon ion-skip-backward xxlarge"></i>-->
-                            <!--<i class="icon ion-loading-c xxlarge" data-ng-show="!API.isBuffering"></i>-->
-                            <!--<i class="fa fa-spinner fa-spin"></i>-->
                             <span data-ng-show="API.isBuffering">Loading...</span>
                             <i class="icon ion-play xxlarge" data-ng-click="API.playPause()" data-ng-hide="API.currentState === 'play' || API.isBuffering"></i>
                             <i class="icon ion-pause xxlarge" data-ng-click="API.playPause()" data-ng-show="API.currentState === 'play' && !API.isBuffering"></i>
                             <i class="icon ion-skip-forward xxlarge" data-ng-click="onCompleteVideo()" data-ng-hide="API.isBuffering"></i>
                         </div>
-                        <!--<div class="pull-right hidden-xs" role="group" aria-label="...">-->
-                        <!--<button type="button" class="btn btn-default"><i class="fa fa-star-o fa-1x"></i></button>-->
-                        <!--<button type="button" class="btn btn-default"><i class="fa fa-share-alt fa-1x"></i></button>-->
-                        <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o fa-1x"> 123</i></button>-->
-                        <!--</div>-->
-                        {{videos[currentVideo].title}}
-                        <br/>
-                        {{videos[currentVideo].artist}}<br/>
+                        <div class="title"><strong>{{videos[currentVideo].title}}</strong></div>
+                        <!--<br/>-->
+                        <div class="artist">{{videos[currentVideo].artist}}</div>
+                        <!--<br/>-->
                     </div>
                 </div>
             </div>
@@ -38,5 +27,5 @@
             <vg-media vg-src="config.sources">
             </vg-media>
         </videogular>
-
 </section>
+

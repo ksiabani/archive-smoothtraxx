@@ -1,8 +1,8 @@
 'use strict';
 
 // Tracks controller
-angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$log', '$splash',
-    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $log, $splash) {
+angular.module('tracks').controller('TracksController', ['$scope', '$rootScope', '$stateParams', '$location', 'Authentication', 'Tracks', '$sce', '$timeout', 'Shared', '$log',
+    function ($scope, $rootScope, $stateParams, $location, Authentication, Tracks, $sce, $timeout, Shared, $log) {
 
         $scope.authentication = Authentication;
         $scope.queryLimit = 10;
@@ -20,34 +20,13 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         //};
 
         //splash modal
-        $scope.openSplash = function (details) {
-            $splash.open({
-                title: details.title,
-                artist: details.artist,
-                label: details.label
-            });
-        };
-
-        //$scope.playAll = function () {
-        //    //if ($scope.mfb.state === 'open') {
-        //    //    Shared.setShowPlayer();
-        //    //    Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre, 'all');
-        //        console.log('Play All');
-        //    //}
+        //$scope.openSplash = function (details) {
+        //    $splash.open({
+        //        title: details.title,
+        //        artist: details.artist,
+        //        label: details.label
+        //    });
         //};
-
-        //$scope.playShuffle = function (filename) {
-        //    $scope.mfb.state = 'closed';
-        //    Shared.setShowPlayer();
-        //    Shared.setPlayerParams($scope.tracksCategory, $scope.tracksGenre, 'shuffle', filename);
-        //    console.log('Play Shuffle');
-        //};
-
-        //category
-        //mode
-        //genre
-        //label
-        //start_with
 
         $scope.play = function (options) {
             Shared.setShowPlayer(true);

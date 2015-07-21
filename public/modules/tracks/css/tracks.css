@@ -1,4 +1,18 @@
-.modal-custom {
-    color: #fff;
-    font-size: 36px;
+#container-view-track {
+    text-align: center;
+}
+
+@media(min-width:768px) {
+    .view-track .view-track-info {
+        margin-top: 25%; /*set a media query for this*/
+    }
+    .view-track .btn-toolbar {
+        margin-top: 20px;
+    }
+}
+
+/*center toolbar http://stackoverflow.com/questions/19040121/unable-to-center-div-on-bootstrap-3*/
+.view-track .btn-toolbar {
+    display: inline-block;
+    margin-bottom: 50px; /*so the player bar don't hide the buttons*/
 }

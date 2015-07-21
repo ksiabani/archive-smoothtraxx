@@ -7,19 +7,22 @@
     </div>
     <div class="media-body">
         <i class="fa fa-ellipsis-v pull-right visible-xs"></i>
-
-        <div class="pull-right hidden-xs" role="group" aria-label="...">
-            <button type="button" class="btn btn-basecamp" data-ng-click="play({ mode: 'all', start_with: track.filename_128, title: track.title, artist: track.artist})"><i class="fa fa-play fa-1x"></i>
-            </button>
-            <button type="button" class="btn btn-basecamp"><i class="fa fa-star-o fa-1x"></i>
-            </button>
-            <button type="button" class="btn btn-basecamp"><i class="fa fa-share fa-1x"></i>
-            </button>
-            <button type="button" class="btn btn-basecamp"><i class="fa fa-heart-o fa-1x">123</i>
-            </button>
+        <div class="btn-toolbar pull-right hidden-xs" role="toolbar" aria-label="...">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-basecamp" data-ng-click="play({ mode: 'all', start_with: track.filename_128, title: track.title, artist: track.artist})"><i class="fa fa-play fa-1x"></i><span class="hidden-xs"> Play</span>
+                </button>
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-basecamp"><i class="fa fa-star-o fa-1x"></i>
+                </button>
+                <button type="button" class="btn btn-basecamp"><i class="fa fa-share fa-1x"></i>
+                </button>
+                <button type="button" class="btn btn-basecamp"><i class="fa fa-heart-o fa-1x"></i> 123
+                </button>
+            </div>
         </div>
-        <strong>{{track.title}}</strong> <br/>
-        {{track.artist}}<br/>
-        <small style="color:grey;">on {{track.publisher}}, {{track.genre}}</small>
+        <div class="title"><strong>{{track.title}}</strong></div>
+        <div class="artist">{{track.artist}}</div>
+        <div class="info"><small style="color:grey;">on {{track.publisher}}, {{track.genre}}<span class="pull-right">6 plays</span></small></div>
     </div>
 </div>

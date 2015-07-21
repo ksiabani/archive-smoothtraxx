@@ -1,0 +1,7 @@
+#player .title, #player .artist {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 75%;
+}
+

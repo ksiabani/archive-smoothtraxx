@@ -63,7 +63,8 @@ angular.module('core').controller('PlayerController',
                   }],
                   title: track.title,
                   artist: track.artist,
-                  filename: track.filename_128
+                  filename: track.filename_128,
+                  id: track._id
                 });
               });
               // If user requested a track (hit play on track) go to that track

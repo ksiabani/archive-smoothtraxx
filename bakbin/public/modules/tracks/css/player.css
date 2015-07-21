@@ -4,16 +4,7 @@
 
 
 
-@media(min-width:768px) {
 
-    .player .player-info {
-        margin-top: 25%; /*set a media query for this*/
-    }
-
-    .player .btn-toolbar {
-        margin-top: 20px;
-    }
-}
 
 /*.player-title{*/
     /*font-size: 32px;*/
@@ -57,8 +48,4 @@
     /*margin-top: 54%;*/
 /*}*/
 
-/*center toolbar http://stackoverflow.com/questions/19040121/unable-to-center-div-on-bootstrap-3*/
-.player .btn-toolbar {
-    display: inline-block;
-    margin-bottom: 50px; /*so the player bar don't hide the buttons*/
-}
+

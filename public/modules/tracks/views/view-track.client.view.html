@@ -1,37 +1,23 @@
-<div data-ng-controller="TracksController" class="container-fluid" data-ng-init="findOne()" style="text-align: center;">
-    <!--<div class="page-header">-->
-    <!--<h3><i class="fa fa-close fa-inverse pull-right"></i>Maybe something here</h3>-->
-    <!--</div>-->
+<div id="container-view-track" data-ng-controller="TracksController" class="container" data-ng-init="findOne()">
     <div class="row">
         <div class="col-md-6">
-            <!--<h2>Project Title</h2>--
-            <!--<hr class="star-primary">-->
-            <div class="player-cover">
+            <div>
                 <img src="http://lorempixel.com/600/600" class="img-responsive" style="margin: 0 auto;" alt="">
             </div>
         </div>
         <div class="col-md-6">
-            <div class="player">
-                <div class="player-info">
+            <div class="view-track">
+                <div class="view-track-info">
                     <div class="h3 text-center">{{track.title}}</div>
                     <div class="h4 text-center"><em>by </em>{{track.artist}}</div>
                     <div class="h5 text-center"><em>on </em>{{track.publisher}}</div>
                     <div class="h4 text-center">{{track.genre}}, {{track.year}}</div>
                     <div class="h6 text-center"> 6 plays</div>
                 </div>
-                <!--<div class="player-controls pull-right">-->
-                <!--<ul>-->
-                <!--<li class="backward"><i class="fa fa-backward fa-2x"></i></li>-->
-                <!--<li class="play"><i class="fa fa-play-circle fa-2x"></i></li>-->
-                <!--<li class="forward"><i class="fa fa-forward fa-2x"></i></li>-->
-                <!--</ul>-->
-                <!--</div>-->
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-basecamp" data-ng-click="play({ mode: 'all', start_with: track.filename_128, title: track.title, artist: track.artist})"><i class="fa fa-play fa-1x"></i><span class="hidden-xs"> Play</span>
                         </button>
-                        <!--<button type="button" class="btn btn-basecamp">Middle</button>-->
-                        <!--<button type="button" class="btn btn-basecamp">Right</button>-->
                     </div>
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-basecamp"><i class="fa fa-star-o fa-1x"></i><span class="hidden-xs"> Add to favorites</span>
