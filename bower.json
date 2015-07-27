@@ -22,5 +22,10 @@
     "angular-deckgrid": "~0.5.0",
     "ng-mfb": "~0.6.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+
+  },
+  "resolutions": {
+    "angular": "~1.2"
+  }
 }
