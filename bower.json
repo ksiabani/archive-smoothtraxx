@@ -23,9 +23,9 @@
     "ng-mfb": "~0.6.1"
   },
   "devDependencies": {
-
   },
   "resolutions": {
-    "angular": "~1.2"
+    "angular": "~1.2",
+    "angular-sanitize": "~1.2"
   }
 }
