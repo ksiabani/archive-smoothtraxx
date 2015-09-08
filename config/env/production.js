@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/groovity-library',
+	//db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/groovity-library',
+	db: 'mongodb://heroku_d7s6mmff:kogiddapqf7ev0ajvdj4lcr1qt@ds041563.mongolab.com:41563/heroku_d7s6mmff',
 	assets: {
 	  lib: {
 		css: [
