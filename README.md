@@ -1,6 +1,6 @@
 [![Smoothtraxx wave logo](https://smoothtraxx.herokuapp.com/modules/core/img/brand/logo.png)](http://smoothtraxx.herokuapp.com)
 
-This is the web application for smoothtraxx.com, built with MEAN.JS. For a live demo check [http://smoothtraxx.herokuapp.com](http://smoothtraxx.herokuapp.com). 
+This is the web application for smoothtraxx.com, built with MEAN.JS and by no means ready for production yet. For a live demo check [http://smoothtraxx.herokuapp.com](http://smoothtraxx.herokuapp.com). 
 
 ## License
 (The MIT License)
