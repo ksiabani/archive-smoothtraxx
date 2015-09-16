@@ -2,7 +2,7 @@
 
 This is the web application for smoothtraxx.com, built with MEAN.JS and by no means ready for production yet. For a live demo check [http://smoothtraxx.herokuapp.com](http://smoothtraxx.herokuapp.com). 
 
-![alt text](https://raw.githubusercontent.com/ksiabani/smoothtraxx/master/screenshot.png "Project screenshot")
+![alt text](https://raw.githubusercontent.com/ksiabani/smoothtraxx/master/public/modules/core/img/screenshot.png "Project screenshot")
 
 ## License
 (The MIT License)
