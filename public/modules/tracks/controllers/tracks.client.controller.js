@@ -11,22 +11,6 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
         $scope.dropdown = {
             title: 'Choose Genre'
         };
-        //$scope.mfb = {
-        //    state: 'closed'
-        //};
-
-        //$scope.log = function(text) {
-        //    console.log(text);
-        //};
-
-        //splash modal
-        //$scope.openSplash = function (details) {
-        //    $splash.open({
-        //        title: details.title,
-        //        artist: details.artist,
-        //        label: details.label
-        //    });
-        //};
 
         $scope.goBack = function() {
             $window.history.back();
@@ -79,45 +63,6 @@ angular.module('tracks').controller('TracksController', ['$scope', '$rootScope',
             $scope.tracksGenre = genre === 'All genres' ? '' : genre;
             $scope.find();
         };
-
-        // Dropdown
-        // http://stackoverflow.com/questions/28050980/how-can-i-modify-an-angularjs-bootstrap-dropdown-select-so-that-it-does-not-us
-        //$scope.ddItems = [
-        //    {id: 0, name: 'Soulful House'},
-        //    {id: 1, name: 'Deep House'},
-        //    {id: 2, name: 'Afro House'},
-        //    {id: 3, name: 'All genres'}
-        //];
-
-        //$scope.ddItem = null;
-        //$scope.ddCallback = function (item) {
-        //    $scope.tracksGenre = item.name === 'all genres' ? '' : item.name;
-        //    $scope.find();
-        //};
-
-        //// Tabs
-        //$scope.listTabs = [
-        //    {title: 'Trending', icon: 'line-chart', category: ''},
-        //    {title: 'Just Added', icon: 'calendar-o', category: ''},
-        //    {title: 'Queue', icon: 'clock-o', category: 'queue'},
-        //    {title: 'Unheard', icon: 'headphones', category: ''}
-        //];
-        //
-        //$scope.listTabsCallback = function (tabCategory) {
-        //    $scope.tracksCategory = tabCategory;
-        //    $scope.find();
-        //};
-        //
-        //// View track tabs
-        //$scope.viewTabs = [
-        //    {title: 'More from ', icon: 'user', category: 'artist'},
-        //    {title: 'More on ', icon: 'user-secret', category: 'label'}
-        //];
-        //
-        //$scope.listTabsCallback = function (tabCategory) {
-        //    $scope.tracksCategory = tabCategory;
-        //    $scope.find();
-        //};
 
         // Create new Track
         $scope.create = function () {

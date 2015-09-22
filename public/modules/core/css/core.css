@@ -28,51 +28,11 @@
     width: 40px;
     height: 40px;
 }
-/*mine*/
-/*.jumbotron {*/
-    /*position: relative;*/
-    /*background: #000 url("http://lorempixel.com/600/600") center center;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background-size: cover;*/
-    /*overflow: hidden;*/
-    /*color: white;*/
-    /*text-shadow: #444 0 1px 1px;*/
-/*}*/
-
-
-
-
-
-
-/*.jumbotron {*/
-    /*/!*padding-top: 200px;*!/*/
-    /*/!*padding-bottom: 200px;*!/*/
-    /*/!*background-size: 3000% auto;*!/*/
-    /*height: 100%;*/
-/*}*/
-
-/*.media {*/
-    /*padding-top: 10px;*/
-    /*padding-bottom: 5px;*/
-/*}*/
-
-/*.media-body {*/
-    /*border-bottom: 1px solid #ddd;*/
-/*}*/
 
 .container h4 {
     color: grey;
     margin-bottom: 20px;
 }
-
-/*.media {*/
-    /*/!*border-top: 1px solid #ddd;*!/*/
-    /*/!*border-bottom: 1px solid #ddd;*!/*/
-    /*margin-top: 0px;*/
-    /*/!*margin-bottom: 5px;*!/*/
-    /*/!*padding-bottom: 5px;*!/*/
-/*}*/
 
 /* List groups */
 .list-tracks .list-group-item{
@@ -96,6 +56,7 @@
 }
 /* /List groups */
 
+
 /*  CSS for sticky search input as seen here:
  ** http://www.mentful.com/2014/06/22/fixed-search-navbar-with-bootstrap-3-0/
  */
@@ -105,16 +66,14 @@
         padding-left:0;
         padding-right:0;
     }
-
-    .navbar {
-        /*margin-bottom: 0;*/ /*heading does not look good on mobile with this*/
-    }
 }
+
 @media(min-width:768px) {
     .navbar .navbar-form {
         width: 250px;
     }
 }
+
 .navbar .navbar-form {
     padding-top: 0;
     padding-bottom: 0;
@@ -126,33 +85,6 @@
     box-shadow: none;
 }
 /* /Sticky search input */
-
-/*/!* Spinkit *!/*/
-/*.sk-spinner-pulse.sk-spinner {*/
-    /*width: 40px;*/
-    /*height: 40px;*/
-    /*margin: 0 auto;*/
-    /*background-color: #333;*/
-    /*border-radius: 100%;*/
-    /*-webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;*/
-    /*animation: sk-pulseScaleOut 1s infinite ease-in-out; }*/
-/*@-webkit-keyframes sk-pulseScaleOut {*/
-    /*0% {*/
-        /*-webkit-transform: scale(0);*/
-        /*transform: scale(0); }*/
-    /*100% {*/
-        /*-webkit-transform: scale(1);*/
-        /*transform: scale(1);*/
-        /*opacity: 0; } }*/
-/*@keyframes sk-pulseScaleOut {*/
-    /*0% {*/
-        /*-webkit-transform: scale(0);*/
-        /*transform: scale(0); }*/
-    /*100% {*/
-        /*-webkit-transform: scale(1);*/
-        /*transform: scale(1);*/
-        /*opacity: 0; } }*/
-/* /Spinkit */
 
 
 .jumbotron {
@@ -182,18 +114,6 @@
     /*margin-top: 0 !important;*/
 }
 
-/* an attempt to use full screen on mobile for tracks, will continue later */
-/* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
-    /*html,body,.ng-scope {height:100%; width:100%;}*/
-    /*.ng-scope .trackotron, .ng-scope .container-trackotron { height:100%; }*/
-    /*.ng-scope .navbar, .ng-scope .container, #header {height: auto; margin-bottom: 0px;}*/
-    /*.ng-scope .jumbotron {background-color:inherit;}*/
-    /*.ng-scope .container-special {width:100%;height:100%;max-width:100%;background-position:center;background-size:cover;}*/
-    /*.ng-scope .jumbotron,.ng-scope .jumbotron .container, .ng-scope .jumbotron .container-special {height:100%;width:100%;}*/
-    /*.halfotron { height: 50%; }*/
-}
-
 i.track-play.ion-play {
     font-size: 40px;
 }
@@ -219,14 +139,6 @@ i.track-play.ion-play {
 .jumbotron .btn-toolbar {
     padding-top: 180px;
 }
-
-/*.jumbotron-xs .btn-toolbar {*/
-    /*padding-top: 180px;*/
-/*}*/
-
-
-/*/!* custom navbar - tracks list header*!/*/
-/*.custom-navbar .fa {font-size:14px}*/
 
 .custom-navbar {
     background-image: none;
@@ -258,19 +170,6 @@ i.track-play.ion-play {
     }
 }
 
-/*.custom-navbar-btn {*/
-    /*position: relative;*/
-    /*float: right;*/
-    /*/!*padding: 9px 10px;*!/*/
-    /*/!*margin-top: 8px;*!/*/
-    /*/!*margin-right: 15px;*!/*/
-    /*/!*margin-bottom: 8px;*!/*/
-    /*background-color: transparent;*/
-    /*background-image: none;*/
-    /*border: 1px solid transparent;*/
-    /*border-radius: 4px;*/
-/*}*/
-
 /* custom dropdown place in the right way */
 .navbar-nav #dd {
     display: block;
@@ -289,5 +188,3 @@ i.track-play.ion-play {
 .btn-basecamp:hover {
     background: #fff;
 }
-
-
